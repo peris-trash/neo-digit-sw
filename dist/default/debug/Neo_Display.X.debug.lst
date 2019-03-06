@@ -1,0 +1,2518 @@
+
+
+Microchip MPLAB XC8 Assembler V2.05 build -831301201 
+                                                                                               Mon Mar  4 22:10:21 2019
+
+Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
+     1                           	processor	18F45K42
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	flic
+     5                           	psect	mediumconst,global,reloc=2,class=MEDIUMCONST,delta=1,noexec
+     6                           	psect	nvCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     7                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     8                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+    10                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text1,global,reloc=2,class=CODE,delta=1,inline
+    12                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text3,global,reloc=2,class=CODE,delta=1,group=1
+    14                           	psect	text4,global,reloc=4,class=CODE,delta=1
+    15                           	psect	text5,global,reloc=4,class=CODE,delta=1
+    16                           	psect	ivt0x8,global,reloc=2,class=CODE,delta=1,noexec,keep,optim=
+    17                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    18                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    19  0000                     
+    20                           ; Version 2.05
+    21                           ; Generated 20/12/2018 GMT
+    22                           ; 
+    23                           ; Copyright © 2018, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    24                           ; All rights reserved.
+    25                           ; 
+    26                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    27                           ; 
+    28                           ; Redistribution and use in source and binary forms, with or without modification, are
+    29                           ; permitted provided that the following conditions are met:
+    30                           ; 
+    31                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    32                           ;        conditions and the following disclaimer.
+    33                           ; 
+    34                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    35                           ;        of conditions and the following disclaimer in the documentation and/or other
+    36                           ;        materials provided with the distribution.
+    37                           ; 
+    38                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    39                           ;        software without specific prior written permission.
+    40                           ; 
+    41                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    42                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    43                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    44                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    45                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    46                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    47                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    48                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    49                           ; 
+    50                           ; 
+    51                           ; Code-generator required, PIC18F45K42 Definitions
+    52                           ; 
+    53                           ; SFR Addresses
+    54  0000                     
+    55                           	psect	mediumconst
+    56  007E96                     __pmediumconst:
+    57                           	opt callstack 0
+    58  007E96  00                 	db	0
+    59  007E97                     _lights:
+    60                           	opt callstack 0
+    61  007E97  00                 	db	0
+    62  007E98  00                 	db	0
+    63  007E99  00                 	db	0
+    64  007E9A  00                 	db	0
+    65  007E9B  00                 	db	0
+    66  007E9C  01                 	db	1
+    67  007E9D  01                 	db	1
+    68  007E9E  02                 	db	2
+    69  007E9F  02                 	db	2
+    70  007EA0  03                 	db	3
+    71  007EA1  04                 	db	4
+    72  007EA2  05                 	db	5
+    73  007EA3  06                 	db	6
+    74  007EA4  07                 	db	7
+    75  007EA5  08                 	db	8
+    76  007EA6  09                 	db	9
+    77  007EA7  0B                 	db	11
+    78  007EA8  0C                 	db	12
+    79  007EA9  0D                 	db	13
+    80  007EAA  0F                 	db	15
+    81  007EAB  11                 	db	17
+    82  007EAC  12                 	db	18
+    83  007EAD  14                 	db	20
+    84  007EAE  16                 	db	22
+    85  007EAF  18                 	db	24
+    86  007EB0  1A                 	db	26
+    87  007EB1  1C                 	db	28
+    88  007EB2  1E                 	db	30
+    89  007EB3  20                 	db	32
+    90  007EB4  23                 	db	35
+    91  007EB5  25                 	db	37
+    92  007EB6  27                 	db	39
+    93  007EB7  2A                 	db	42
+    94  007EB8  2C                 	db	44
+    95  007EB9  2F                 	db	47
+    96  007EBA  31                 	db	49
+    97  007EBB  34                 	db	52
+    98  007EBC  37                 	db	55
+    99  007EBD  3A                 	db	58
+   100  007EBE  3C                 	db	60
+   101  007EBF  3F                 	db	63
+   102  007EC0  42                 	db	66
+   103  007EC1  45                 	db	69
+   104  007EC2  48                 	db	72
+   105  007EC3  4B                 	db	75
+   106  007EC4  4E                 	db	78
+   107  007EC5  51                 	db	81
+   108  007EC6  55                 	db	85
+   109  007EC7  58                 	db	88
+   110  007EC8  5B                 	db	91
+   111  007EC9  5E                 	db	94
+   112  007ECA  61                 	db	97
+   113  007ECB  65                 	db	101
+   114  007ECC  68                 	db	104
+   115  007ECD  6B                 	db	107
+   116  007ECE  6F                 	db	111
+   117  007ECF  72                 	db	114
+   118  007ED0  75                 	db	117
+   119  007ED1  79                 	db	121
+   120  007ED2  7C                 	db	124
+   121  007ED3  7F                 	db	127
+   122  007ED4  83                 	db	131
+   123  007ED5  86                 	db	134
+   124  007ED6  89                 	db	137
+   125  007ED7  8D                 	db	141
+   126  007ED8  90                 	db	144
+   127  007ED9  93                 	db	147
+   128  007EDA  96                 	db	150
+   129  007EDB  9A                 	db	154
+   130  007EDC  9D                 	db	157
+   131  007EDD  A0                 	db	160
+   132  007EDE  A3                 	db	163
+   133  007EDF  A7                 	db	167
+   134  007EE0  AA                 	db	170
+   135  007EE1  AD                 	db	173
+   136  007EE2  B0                 	db	176
+   137  007EE3  B3                 	db	179
+   138  007EE4  B6                 	db	182
+   139  007EE5  B9                 	db	185
+   140  007EE6  BC                 	db	188
+   141  007EE7  BF                 	db	191
+   142  007EE8  C2                 	db	194
+   143  007EE9  C5                 	db	197
+   144  007EEA  C8                 	db	200
+   145  007EEB  CA                 	db	202
+   146  007EEC  CD                 	db	205
+   147  007EED  D0                 	db	208
+   148  007EEE  D2                 	db	210
+   149  007EEF  D5                 	db	213
+   150  007EF0  D7                 	db	215
+   151  007EF1  D9                 	db	217
+   152  007EF2  DC                 	db	220
+   153  007EF3  DE                 	db	222
+   154  007EF4  E0                 	db	224
+   155  007EF5  E2                 	db	226
+   156  007EF6  E5                 	db	229
+   157  007EF7  E7                 	db	231
+   158  007EF8  E8                 	db	232
+   159  007EF9  EA                 	db	234
+   160  007EFA  EC                 	db	236
+   161  007EFB  EE                 	db	238
+   162  007EFC  EF                 	db	239
+   163  007EFD  F1                 	db	241
+   164  007EFE  F2                 	db	242
+   165  007EFF  F4                 	db	244
+   166  007F00  F5                 	db	245
+   167  007F01  F6                 	db	246
+   168  007F02  F8                 	db	248
+   169  007F03  F9                 	db	249
+   170  007F04  FA                 	db	250
+   171  007F05  FB                 	db	251
+   172  007F06  FB                 	db	251
+   173  007F07  FC                 	db	252
+   174  007F08  FD                 	db	253
+   175  007F09  FD                 	db	253
+   176  007F0A  FE                 	db	254
+   177  007F0B  FE                 	db	254
+   178  007F0C  FF                 	db	255
+   179  007F0D  FF                 	db	255
+   180  007F0E  FF                 	db	255
+   181  007F0F  FF                 	db	255
+   182  007F10  FF                 	db	255
+   183  007F11  FF                 	db	255
+   184  007F12  FF                 	db	255
+   185  007F13  FE                 	db	254
+   186  007F14  FE                 	db	254
+   187  007F15  FD                 	db	253
+   188  007F16  FD                 	db	253
+   189  007F17  FC                 	db	252
+   190  007F18  FB                 	db	251
+   191  007F19  FB                 	db	251
+   192  007F1A  FA                 	db	250
+   193  007F1B  F9                 	db	249
+   194  007F1C  F8                 	db	248
+   195  007F1D  F6                 	db	246
+   196  007F1E  F5                 	db	245
+   197  007F1F  F4                 	db	244
+   198  007F20  F2                 	db	242
+   199  007F21  F1                 	db	241
+   200  007F22  EF                 	db	239
+   201  007F23  EE                 	db	238
+   202  007F24  EC                 	db	236
+   203  007F25  EA                 	db	234
+   204  007F26  E8                 	db	232
+   205  007F27  E7                 	db	231
+   206  007F28  E5                 	db	229
+   207  007F29  E2                 	db	226
+   208  007F2A  E0                 	db	224
+   209  007F2B  DE                 	db	222
+   210  007F2C  DC                 	db	220
+   211  007F2D  D9                 	db	217
+   212  007F2E  D7                 	db	215
+   213  007F2F  D5                 	db	213
+   214  007F30  D2                 	db	210
+   215  007F31  D0                 	db	208
+   216  007F32  CD                 	db	205
+   217  007F33  CA                 	db	202
+   218  007F34  C8                 	db	200
+   219  007F35  C5                 	db	197
+   220  007F36  C2                 	db	194
+   221  007F37  BF                 	db	191
+   222  007F38  BC                 	db	188
+   223  007F39  B9                 	db	185
+   224  007F3A  B6                 	db	182
+   225  007F3B  B3                 	db	179
+   226  007F3C  B0                 	db	176
+   227  007F3D  AD                 	db	173
+   228  007F3E  AA                 	db	170
+   229  007F3F  A7                 	db	167
+   230  007F40  A3                 	db	163
+   231  007F41  A0                 	db	160
+   232  007F42  9D                 	db	157
+   233  007F43  9A                 	db	154
+   234  007F44  96                 	db	150
+   235  007F45  93                 	db	147
+   236  007F46  90                 	db	144
+   237  007F47  8D                 	db	141
+   238  007F48  89                 	db	137
+   239  007F49  86                 	db	134
+   240  007F4A  83                 	db	131
+   241  007F4B  7F                 	db	127
+   242  007F4C  7C                 	db	124
+   243  007F4D  79                 	db	121
+   244  007F4E  75                 	db	117
+   245  007F4F  72                 	db	114
+   246  007F50  6F                 	db	111
+   247  007F51  6B                 	db	107
+   248  007F52  68                 	db	104
+   249  007F53  65                 	db	101
+   250  007F54  61                 	db	97
+   251  007F55  5E                 	db	94
+   252  007F56  5B                 	db	91
+   253  007F57  58                 	db	88
+   254  007F58  55                 	db	85
+   255  007F59  51                 	db	81
+   256  007F5A  4E                 	db	78
+   257  007F5B  4B                 	db	75
+   258  007F5C  48                 	db	72
+   259  007F5D  45                 	db	69
+   260  007F5E  42                 	db	66
+   261  007F5F  3F                 	db	63
+   262  007F60  3C                 	db	60
+   263  007F61  3A                 	db	58
+   264  007F62  37                 	db	55
+   265  007F63  34                 	db	52
+   266  007F64  31                 	db	49
+   267  007F65  2F                 	db	47
+   268  007F66  2C                 	db	44
+   269  007F67  2A                 	db	42
+   270  007F68  27                 	db	39
+   271  007F69  25                 	db	37
+   272  007F6A  23                 	db	35
+   273  007F6B  20                 	db	32
+   274  007F6C  1E                 	db	30
+   275  007F6D  1C                 	db	28
+   276  007F6E  1A                 	db	26
+   277  007F6F  18                 	db	24
+   278  007F70  16                 	db	22
+   279  007F71  14                 	db	20
+   280  007F72  12                 	db	18
+   281  007F73  11                 	db	17
+   282  007F74  0F                 	db	15
+   283  007F75  0D                 	db	13
+   284  007F76  0C                 	db	12
+   285  007F77  0B                 	db	11
+   286  007F78  09                 	db	9
+   287  007F79  08                 	db	8
+   288  007F7A  07                 	db	7
+   289  007F7B  06                 	db	6
+   290  007F7C  05                 	db	5
+   291  007F7D  04                 	db	4
+   292  007F7E  03                 	db	3
+   293  007F7F  02                 	db	2
+   294  007F80  02                 	db	2
+   295  007F81  01                 	db	1
+   296  007F82  01                 	db	1
+   297  007F83  00                 	db	0
+   298  007F84  00                 	db	0
+   299  007F85  00                 	db	0
+   300  007F86  00                 	db	0
+   301  007F87  00                 	db	0
+   302  007F88  00                 	db	0
+   303  007F89  00                 	db	0
+   304  007F8A  00                 	db	0
+   305  007F8B  00                 	db	0
+   306  007F8C  00                 	db	0
+   307  007F8D  00                 	db	0
+   308  007F8E  00                 	db	0
+   309  007F8F  00                 	db	0
+   310  007F90  00                 	db	0
+   311  007F91  00                 	db	0
+   312  007F92  00                 	db	0
+   313  007F93  00                 	db	0
+   314  007F94  00                 	db	0
+   315  007F95  00                 	db	0
+   316  007F96  00                 	db	0
+   317  007F97  00                 	db	0
+   318  007F98  00                 	db	0
+   319  007F99  00                 	db	0
+   320  007F9A  00                 	db	0
+   321  007F9B  00                 	db	0
+   322  007F9C  00                 	db	0
+   323  007F9D  00                 	db	0
+   324  007F9E  00                 	db	0
+   325  007F9F  00                 	db	0
+   326  007FA0  00                 	db	0
+   327  007FA1  00                 	db	0
+   328  007FA2  00                 	db	0
+   329  007FA3  00                 	db	0
+   330  007FA4  00                 	db	0
+   331  007FA5  00                 	db	0
+   332  007FA6  00                 	db	0
+   333  007FA7  00                 	db	0
+   334  007FA8  00                 	db	0
+   335  007FA9  00                 	db	0
+   336  007FAA  00                 	db	0
+   337  007FAB  00                 	db	0
+   338  007FAC  00                 	db	0
+   339  007FAD  00                 	db	0
+   340  007FAE  00                 	db	0
+   341  007FAF  00                 	db	0
+   342  007FB0  00                 	db	0
+   343  007FB1  00                 	db	0
+   344  007FB2  00                 	db	0
+   345  007FB3  00                 	db	0
+   346  007FB4  00                 	db	0
+   347  007FB5  00                 	db	0
+   348  007FB6  00                 	db	0
+   349  007FB7  00                 	db	0
+   350  007FB8  00                 	db	0
+   351  007FB9  00                 	db	0
+   352  007FBA  00                 	db	0
+   353  007FBB  00                 	db	0
+   354  007FBC  00                 	db	0
+   355  007FBD  00                 	db	0
+   356  007FBE  00                 	db	0
+   357  007FBF  00                 	db	0
+   358  007FC0  00                 	db	0
+   359  007FC1  00                 	db	0
+   360  007FC2  00                 	db	0
+   361  007FC3  00                 	db	0
+   362  007FC4  00                 	db	0
+   363  007FC5  00                 	db	0
+   364  007FC6  00                 	db	0
+   365  007FC7  00                 	db	0
+   366  007FC8  00                 	db	0
+   367  007FC9  00                 	db	0
+   368  007FCA  00                 	db	0
+   369  007FCB  00                 	db	0
+   370  007FCC  00                 	db	0
+   371  007FCD  00                 	db	0
+   372  007FCE  00                 	db	0
+   373  007FCF  00                 	db	0
+   374  007FD0  00                 	db	0
+   375  007FD1  00                 	db	0
+   376  007FD2  00                 	db	0
+   377  007FD3  00                 	db	0
+   378  007FD4  00                 	db	0
+   379  007FD5  00                 	db	0
+   380  007FD6  00                 	db	0
+   381  007FD7  00                 	db	0
+   382  007FD8  00                 	db	0
+   383  007FD9  00                 	db	0
+   384  007FDA  00                 	db	0
+   385  007FDB  00                 	db	0
+   386  007FDC  00                 	db	0
+   387  007FDD  00                 	db	0
+   388  007FDE  00                 	db	0
+   389  007FDF  00                 	db	0
+   390  007FE0  00                 	db	0
+   391  007FE1  00                 	db	0
+   392  007FE2  00                 	db	0
+   393  007FE3  00                 	db	0
+   394  007FE4  00                 	db	0
+   395  007FE5  00                 	db	0
+   396  007FE6  00                 	db	0
+   397  007FE7  00                 	db	0
+   398  007FE8  00                 	db	0
+   399  007FE9  00                 	db	0
+   400  007FEA  00                 	db	0
+   401  007FEB  00                 	db	0
+   402  007FEC  00                 	db	0
+   403  007FED  00                 	db	0
+   404  007FEE  00                 	db	0
+   405  007FEF  00                 	db	0
+   406  007FF0  00                 	db	0
+   407  007FF1  00                 	db	0
+   408  007FF2  00                 	db	0
+   409  007FF3  00                 	db	0
+   410  007FF4  00                 	db	0
+   411  007FF5  00                 	db	0
+   412  007FF6  00                 	db	0
+   413  007FF7  00                 	db	0
+   414  007FF8  00                 	db	0
+   415  007FF9  00                 	db	0
+   416  007FFA  00                 	db	0
+   417  007FFB  00                 	db	0
+   418  007FFC  00                 	db	0
+   419  007FFD  00                 	db	0
+   420  007FFE  00                 	db	0
+   421  007FFF                     __end_of_lights:
+   422                           	opt callstack 0
+   423  007FFF  00                 	db	0	; dummy byte at the end
+   424  0000                     
+   425                           	psect	nvCOMRAM
+   426  000033                     __pnvCOMRAM:
+   427                           	opt callstack 0
+   428  000033                     _enable:
+   429                           	opt callstack 0
+   430  000033                     	ds	1
+   431  000034                     _blue_reg:
+   432                           	opt callstack 0
+   433  000034                     	ds	1
+   434  000035                     _green_reg:
+   435                           	opt callstack 0
+   436  000035                     	ds	1
+   437  000036                     _red_reg:
+   438                           	opt callstack 0
+   439  000036                     	ds	1
+   440  0000                     _PIE3bits	set	14739
+   441  0000                     _IPR3bits	set	14723
+   442  0000                     _PIR3bits	set	14755
+   443  0000                     _RB5PPS	set	14861
+   444  0000                     _SPI1SSPPS	set	15072
+   445  0000                     _SPI1SDIPPS	set	15071
+   446  0000                     _SPI1SCKPPS	set	15070
+   447  0000                     _PPSLOCKbits	set	15039
+   448  0000                     _ANSELE	set	14976
+   449  0000                     _ANSELD	set	14960
+   450  0000                     _ANSELC	set	14944
+   451  0000                     _ANSELB	set	14928
+   452  0000                     _ANSELA	set	14912
+   453  0000                     _SPI1BAUD	set	15641
+   454  0000                     _SPI1CLKbits	set	15644
+   455  0000                     _SPI1CON2bits	set	15638
+   456  0000                     _SPI1CON0bits	set	15636
+   457  0000                     _SPI1CON1bits	set	15637
+   458  0000                     _INTCON0bits	set	16338
+   459  0000                     _TMR0H	set	16311
+   460  0000                     _TMR0L	set	16310
+   461  0000                     _T0CON1bits	set	16313
+   462  0000                     _T0CON0bits	set	16312
+   463  0000                     _TRISE	set	16326
+   464  0000                     _LATE	set	16318
+   465  0000                     _TRISD	set	16325
+   466  0000                     _TRISC	set	16324
+   467  0000                     _TRISB	set	16323
+   468  0000                     _LATB	set	16315
+   469  0000                     _TRISA	set	16322
+   470  0000                     _LATD	set	16317
+   471  0000                     _LATC	set	16316
+   472  0000                     _LATA	set	16314
+   473                           
+   474                           ; #config settings
+   475  0000                     
+   476                           	psect	cinit
+   477  0007BC                     __pcinit:
+   478                           	opt callstack 0
+   479  0007BC                     start_initialization:
+   480                           	opt callstack 0
+   481  0007BC                     __initialization:
+   482                           	opt callstack 0
+   483                           
+   484                           ; Clear objects allocated to COMRAM (3 bytes)
+   485  0007BC  6A39               	clrf	(__pbssCOMRAM+2)& (0+255),c
+   486  0007BE  6A38               	clrf	(__pbssCOMRAM+1)& (0+255),c
+   487  0007C0  6A37               	clrf	__pbssCOMRAM& (0+255),c
+   488                           
+   489                           ;
+   490                           ; Setup IVTBASE
+   491                           ;
+   492  0007C2  0E08               	movlw	(ivt0x8_base shr 0)& (0+255)
+   493  0007C4  6ED5               	movwf	213,c
+   494  0007C6  0E00               	movlw	(ivt0x8_base shr (0+8))& (0+255)
+   495  0007C8  6ED6               	movwf	214,c
+   496  0007CA  0E00               	movlw	(ivt0x8_base shr (0+16))& (0+255)
+   497  0007CC  6ED7               	movwf	215,c
+   498  0007CE                     end_of_initialization:
+   499                           	opt callstack 0
+   500  0007CE                     __end_of__initialization:
+   501                           	opt callstack 0
+   502  0007CE  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   503  0007D0  6EF8               	movwf	tblptru,c
+   504  0007D2  0100               	movlb	0
+   505  0007D4  EF59  F000         	goto	_main	;jump to C main() function
+   506                           
+   507                           	psect	bssCOMRAM
+   508  000037                     __pbssCOMRAM:
+   509                           	opt callstack 0
+   510  000037                     _counter:
+   511                           	opt callstack 0
+   512  000037                     	ds	1
+   513  000038                     _status_reg:
+   514                           	opt callstack 0
+   515  000038                     	ds	1
+   516  000039                     _control_reg:
+   517                           	opt callstack 0
+   518  000039                     	ds	1
+   519                           
+   520                           	psect	cstackCOMRAM
+   521  000001                     __pcstackCOMRAM:
+   522                           	opt callstack 0
+   523  000001                     ?___awmod:
+   524                           	opt callstack 0
+   525  000001                     ?_color_Hex_rgb:
+   526                           	opt callstack 0
+   527  000001                     ___awmod@dividend:
+   528                           	opt callstack 0
+   529  000001                     set_color@color:
+   530                           	opt callstack 0
+   531  000001                     color_Hex_rgb@hex:
+   532                           	opt callstack 0
+   533                           
+   534                           ; 4 bytes @ 0x0
+   535  000001                     	ds	2
+   536  000003                     ___awmod@divisor:
+   537                           	opt callstack 0
+   538                           
+   539                           ; 2 bytes @ 0x2
+   540  000003                     	ds	1
+   541  000004                     
+   542                           ; 1 bytes @ 0x3
+   543  000004                     	ds	1
+   544  000005                     ___awmod@counter:
+   545                           	opt callstack 0
+   546  000005                     color_Hex_rgb@new_color:
+   547                           	opt callstack 0
+   548                           
+   549                           ; 3 bytes @ 0x4
+   550  000005                     	ds	1
+   551  000006                     ___awmod@sign:
+   552                           	opt callstack 0
+   553                           
+   554                           ; 1 bytes @ 0x5
+   555  000006                     	ds	2
+   556  000008                     ??_main:
+   557                           
+   558                           ; 1 bytes @ 0x7
+   559  000008                     	ds	2
+   560  00000A                     main@blue:
+   561                           	opt callstack 0
+   562                           
+   563                           ; 3 bytes @ 0x9
+   564  00000A                     	ds	3
+   565  00000D                     main@aqua:
+   566                           	opt callstack 0
+   567                           
+   568                           ; 3 bytes @ 0xC
+   569  00000D                     	ds	3
+   570  000010                     main@teal:
+   571                           	opt callstack 0
+   572                           
+   573                           ; 3 bytes @ 0xF
+   574  000010                     	ds	3
+   575  000013                     main@olive:
+   576                           	opt callstack 0
+   577                           
+   578                           ; 3 bytes @ 0x12
+   579  000013                     	ds	3
+   580  000016                     main@green:
+   581                           	opt callstack 0
+   582                           
+   583                           ; 3 bytes @ 0x15
+   584  000016                     	ds	3
+   585  000019                     main@lime:
+   586                           	opt callstack 0
+   587                           
+   588                           ; 3 bytes @ 0x18
+   589  000019                     	ds	3
+   590  00001C                     main@yellow:
+   591                           	opt callstack 0
+   592                           
+   593                           ; 3 bytes @ 0x1B
+   594  00001C                     	ds	3
+   595  00001F                     main@orange:
+   596                           	opt callstack 0
+   597                           
+   598                           ; 3 bytes @ 0x1E
+   599  00001F                     	ds	3
+   600  000022                     main@red:
+   601                           	opt callstack 0
+   602                           
+   603                           ; 3 bytes @ 0x21
+   604  000022                     	ds	3
+   605  000025                     main@marron:
+   606                           	opt callstack 0
+   607                           
+   608                           ; 3 bytes @ 0x24
+   609  000025                     	ds	3
+   610  000028                     main@fushcia:
+   611                           	opt callstack 0
+   612                           
+   613                           ; 3 bytes @ 0x27
+   614  000028                     	ds	3
+   615  00002B                     main@purple:
+   616                           	opt callstack 0
+   617                           
+   618                           ; 3 bytes @ 0x2A
+   619  00002B                     	ds	3
+   620  00002E                     main@navy:
+   621                           	opt callstack 0
+   622                           
+   623                           ; 3 bytes @ 0x2D
+   624  00002E                     	ds	3
+   625  000031                     main@k:
+   626                           	opt callstack 0
+   627                           
+   628                           ; 2 bytes @ 0x30
+   629  000031                     	ds	2
+   630                           
+   631 ;;
+   632 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   633 ;;
+   634 ;; *************** function _main *****************
+   635 ;; Defined at:
+   636 ;;		line 152 in file "main.c"
+   637 ;; Parameters:    Size  Location     Type
+   638 ;;		None
+   639 ;; Auto vars:     Size  Location     Type
+   640 ;;  k               2   48[COMRAM] int 
+   641 ;;  navy            3   45[COMRAM] struct .
+   642 ;;  purple          3   42[COMRAM] struct .
+   643 ;;  fushcia         3   39[COMRAM] struct .
+   644 ;;  marron          3   36[COMRAM] struct .
+   645 ;;  red             3   33[COMRAM] struct .
+   646 ;;  orange          3   30[COMRAM] struct .
+   647 ;;  yellow          3   27[COMRAM] struct .
+   648 ;;  lime            3   24[COMRAM] struct .
+   649 ;;  green           3   21[COMRAM] struct .
+   650 ;;  olive           3   18[COMRAM] struct .
+   651 ;;  teal            3   15[COMRAM] struct .
+   652 ;;  aqua            3   12[COMRAM] struct .
+   653 ;;  blue            3    9[COMRAM] struct .
+   654 ;; Return value:  Size  Location     Type
+   655 ;;                  1    wreg      void 
+   656 ;; Registers used:
+   657 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+   658 ;; Tracked objects:
+   659 ;;		On entry : 0/0
+   660 ;;		On exit  : 0/0
+   661 ;;		Unchanged: 0/0
+   662 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   663 ;;      Params:         0       0       0       0       0       0       0       0       0
+   664 ;;      Locals:        41       0       0       0       0       0       0       0       0
+   665 ;;      Temps:          2       0       0       0       0       0       0       0       0
+   666 ;;      Totals:        43       0       0       0       0       0       0       0       0
+   667 ;;Total ram usage:       43 bytes
+   668 ;; Hardware stack levels required when called:    2
+   669 ;; This function calls:
+   670 ;;		___awmod
+   671 ;;		_color_Hex_rgb
+   672 ;;		_set_color
+   673 ;; This function is called by:
+   674 ;;		Startup code after reset
+   675 ;; This function uses a non-reentrant model
+   676 ;;
+   677                           
+   678                           	psect	text0
+   679  0000B2                     __ptext0:
+   680                           	opt callstack 0
+   681  0000B2                     _main:
+   682                           	opt callstack 29
+   683                           
+   684                           ;main.c: 156:  counter = 0x00;
+   685                           
+   686                           ;incstack = 0
+   687  0000B2  0E00               	movlw	0
+   688  0000B4  6E37               	movwf	_counter,c	;volatile
+   689                           
+   690                           ;main.c: 158:  red_reg = 0x7F;
+   691  0000B6  0E7F               	movlw	127
+   692  0000B8  6E36               	movwf	_red_reg,c	;volatile
+   693                           
+   694                           ;main.c: 159:  green_reg = 0x7F;
+   695  0000BA  0E7F               	movlw	127
+   696  0000BC  6E35               	movwf	_green_reg,c	;volatile
+   697                           
+   698                           ;main.c: 160:  blue_reg = 0x7F;
+   699  0000BE  0E7F               	movlw	127
+   700  0000C0  6E34               	movwf	_blue_reg,c	;volatile
+   701                           
+   702                           ;main.c: 162:  enable = 0xFF;
+   703  0000C2  6833               	setf	_enable,c	;volatile
+   704                           
+   705                           ;main.c: 167:  ANSELA = 0x00;
+   706  0000C4  0E00               	movlw	0
+   707  0000C6  013A               	movlb	58	; () banked
+   708  0000C8  6F40               	movwf	64,b	;volatile
+   709                           
+   710                           ;main.c: 168:  LATA = 0x00;
+   711  0000CA  0E00               	movlw	0
+   712  0000CC  6EBA               	movwf	16314,c	;volatile
+   713                           
+   714                           ;main.c: 169:  TRISA = 0x01;
+   715  0000CE  0E01               	movlw	1
+   716  0000D0  6EC2               	movwf	16322,c	;volatile
+   717                           
+   718                           ;main.c: 172:  ANSELB = 0x00;
+   719  0000D2  0E00               	movlw	0
+   720  0000D4  6F50               	movwf	80,b	;volatile
+   721                           
+   722                           ;main.c: 173:  LATB = 0x00;
+   723  0000D6  0E00               	movlw	0
+   724  0000D8  6EBB               	movwf	16315,c	;volatile
+   725                           
+   726                           ;main.c: 174:  TRISB = 0xDF;
+   727  0000DA  0EDF               	movlw	223
+   728  0000DC  6EC3               	movwf	16323,c	;volatile
+   729                           
+   730                           ;main.c: 177:  ANSELC = 0x00;
+   731  0000DE  0E00               	movlw	0
+   732  0000E0  6F60               	movwf	96,b	;volatile
+   733                           
+   734                           ;main.c: 178:  LATC = 0x00;
+   735  0000E2  0E00               	movlw	0
+   736  0000E4  6EBC               	movwf	16316,c	;volatile
+   737                           
+   738                           ;main.c: 179:  TRISC = 0x01;
+   739  0000E6  0E01               	movlw	1
+   740  0000E8  6EC4               	movwf	16324,c	;volatile
+   741                           
+   742                           ;main.c: 182:  ANSELD = 0x00;
+   743  0000EA  0E00               	movlw	0
+   744  0000EC  6F70               	movwf	112,b	;volatile
+   745                           
+   746                           ;main.c: 183:  LATD = 0x00;
+   747  0000EE  0E00               	movlw	0
+   748  0000F0  6EBD               	movwf	16317,c	;volatile
+   749                           
+   750                           ;main.c: 184:  TRISD = 0x01;
+   751  0000F2  0E01               	movlw	1
+   752  0000F4  6EC5               	movwf	16325,c	;volatile
+   753                           
+   754                           ;main.c: 187:  ANSELE = 0x00;
+   755  0000F6  0E00               	movlw	0
+   756  0000F8  6F80               	movwf	128,b	;volatile
+   757                           
+   758                           ;main.c: 188:  LATE = 0x00;
+   759  0000FA  0E00               	movlw	0
+   760  0000FC  6EBE               	movwf	16318,c	;volatile
+   761                           
+   762                           ; BSR set to: 58
+   763                           ;main.c: 189:  TRISE = 0xFF;
+   764  0000FE  68C6               	setf	16326,c	;volatile
+   765                           
+   766                           ; BSR set to: 58
+   767                           ;main.c: 193:  PPSLOCKbits.PPSLOCKED = 0;
+   768  000100  91BF               	bcf	191,0,b	;volsfr
+   769                           
+   770                           ;main.c: 196:  SPI1SCKPPS = 0b001110;
+   771  000102  0E0E               	movlw	14
+   772  000104  6FDE               	movwf	222,b	;volatile
+   773                           
+   774                           ;main.c: 197:  SPI1SDIPPS = 0b001111;
+   775  000106  0E0F               	movlw	15
+   776  000108  6FDF               	movwf	223,b	;volatile
+   777                           
+   778                           ;main.c: 198:  SPI1SSPPS = 0b000000;
+   779  00010A  0E00               	movlw	0
+   780  00010C  6FE0               	movwf	224,b	;volatile
+   781                           
+   782                           ;main.c: 201:  RB5PPS = 0b011111;
+   783  00010E  0E1F               	movlw	31
+   784  000110  6F0D               	movwf	13,b	;volatile
+   785                           
+   786                           ; BSR set to: 58
+   787                           ;main.c: 203:  PPSLOCKbits.PPSLOCKED = 1;
+   788  000112  81BF               	bsf	191,0,b	;volsfr
+   789                           
+   790                           ; BSR set to: 58
+   791                           ;main.c: 207:  SPI1CON1bits.SDOP = 1;
+   792  000114  013D               	movlb	61	; () banked
+   793  000116  8115               	bsf	21,0,b	;volatile
+   794                           
+   795                           ; BSR set to: 61
+   796                           ;main.c: 208:  SPI1CON1bits.SDIP = 1;
+   797  000118  8315               	bsf	21,1,b	;volatile
+   798                           
+   799                           ; BSR set to: 61
+   800                           ;main.c: 209:  SPI1CON1bits.SSP = 1;
+   801  00011A  8515               	bsf	21,2,b	;volatile
+   802                           
+   803                           ; BSR set to: 61
+   804                           ;main.c: 210:  SPI1CON1bits.CKP = 1;
+   805  00011C  8B15               	bsf	21,5,b	;volatile
+   806                           
+   807                           ; BSR set to: 61
+   808                           ;main.c: 211:  SPI1CON1bits.CKE = 0;
+   809  00011E  9D15               	bcf	21,6,b	;volatile
+   810                           
+   811                           ; BSR set to: 61
+   812                           ;main.c: 213:  SPI1CON0bits.MST = 0;
+   813  000120  9314               	bcf	20,1,b	;volatile
+   814                           
+   815                           ; BSR set to: 61
+   816                           ;main.c: 214:  SPI1CON0bits.LSBF = 0;
+   817  000122  9514               	bcf	20,2,b	;volatile
+   818                           
+   819                           ; BSR set to: 61
+   820                           ;main.c: 216:  SPI1CON2bits.RXR = 0;
+   821  000124  9116               	bcf	22,0,b	;volatile
+   822                           
+   823                           ; BSR set to: 61
+   824                           ;main.c: 217:  SPI1CON2bits.TXR = 0;
+   825  000126  9316               	bcf	22,1,b	;volatile
+   826                           
+   827                           ; BSR set to: 61
+   828                           ;main.c: 218:  SPI1CON2bits.SSET = 0;
+   829  000128  9516               	bcf	22,2,b	;volatile
+   830                           
+   831                           ;main.c: 220:  SPI1CLKbits.CLKSEL = 0b0001;
+   832  00012A  0E01               	movlw	1
+   833  00012C  6F1C               	movwf	28,b	;volatile
+   834                           
+   835                           ;main.c: 222:  SPI1BAUD = 0x00;
+   836  00012E  0E00               	movlw	0
+   837  000130  6F19               	movwf	25,b	;volatile
+   838                           
+   839                           ; BSR set to: 61
+   840                           ;main.c: 224:  SPI1CON0bits.EN = 1;
+   841  000132  8F14               	bsf	20,7,b	;volatile
+   842                           
+   843                           ;main.c: 234:  T0CON0bits.OUTPS = 0b000;
+   844  000134  0EF0               	movlw	-16
+   845  000136  16B8               	andwf	16312,f,c	;volatile
+   846                           
+   847                           ; BSR set to: 61
+   848                           ;main.c: 235:  T0CON0bits.MD16 = 0;
+   849  000138  98B8               	bcf	16312,4,c	;volatile
+   850                           
+   851                           ;main.c: 237:  T0CON1bits.CKPS = 0b0001;
+   852  00013A  50B9               	movf	16313,w,c	;volatile
+   853  00013C  0BF0               	andlw	-16
+   854  00013E  0901               	iorlw	1
+   855  000140  6EB9               	movwf	16313,c	;volatile
+   856                           
+   857                           ; BSR set to: 61
+   858                           ;main.c: 238:  T0CON1bits.ASYNC = 1;
+   859  000142  88B9               	bsf	16313,4,c	;volatile
+   860                           
+   861                           ;main.c: 239:  T0CON1bits.CS = 0b011;
+   862  000144  50B9               	movf	16313,w,c	;volatile
+   863  000146  0B1F               	andlw	-225
+   864  000148  0960               	iorlw	96
+   865  00014A  6EB9               	movwf	16313,c	;volatile
+   866                           
+   867                           ;main.c: 241:  TMR0L = 0x00;
+   868  00014C  0E00               	movlw	0
+   869  00014E  6EB6               	movwf	16310,c	;volatile
+   870                           
+   871                           ;main.c: 243:  TMR0H = 124;
+   872  000150  0E7C               	movlw	124
+   873  000152  6EB7               	movwf	16311,c	;volatile
+   874                           
+   875                           ; BSR set to: 61
+   876                           ;main.c: 245:  T0CON0bits.EN = 1;
+   877  000154  8EB8               	bsf	16312,7,c	;volatile
+   878                           
+   879                           ; BSR set to: 61
+   880                           ;main.c: 250:  INTCON0bits.IPEN = 1;
+   881  000156  8AD2               	bsf	16338,5,c	;volatile
+   882                           
+   883                           ; BSR set to: 61
+   884                           ;main.c: 251:  INTCON0bits.GIEH = 1;
+   885  000158  8ED2               	bsf	16338,7,c	;volatile
+   886                           
+   887                           ; BSR set to: 61
+   888                           ;main.c: 252:  INTCON0bits.GIEL = 1;
+   889  00015A  8CD2               	bsf	16338,6,c	;volatile
+   890                           
+   891                           ; BSR set to: 61
+   892                           ;main.c: 255:  IPR3bits.TMR0IP = 1;
+   893  00015C  0139               	movlb	57	; () banked
+   894  00015E  8F83               	bsf	131,7,b	;volatile
+   895                           
+   896                           ; BSR set to: 57
+   897                           ;main.c: 256:  PIE3bits.TMR0IE = 1;
+   898  000160  8F93               	bsf	147,7,b	;volatile
+   899                           
+   900                           ; BSR set to: 57
+   901                           ;main.c: 257:  PIR3bits.TMR0IF = 0;
+   902  000162  9FA3               	bcf	163,7,b	;volatile
+   903                           
+   904                           ; BSR set to: 57
+   905                           ;main.c: 259:  (INTCON0bits.GIE = 1);
+   906  000164  8ED2               	bsf	16338,7,c	;volatile
+   907                           
+   908                           ; BSR set to: 57
+   909                           ;main.c: 261:     COLOR navy = color_Hex_rgb(0x001F3F);
+   910  000166  0E3F               	movlw	63
+   911  000168  6E01               	movwf	color_Hex_rgb@hex,c
+   912  00016A  0E1F               	movlw	31
+   913  00016C  6E02               	movwf	color_Hex_rgb@hex+1,c
+   914  00016E  0E00               	movlw	0
+   915  000170  6E03               	movwf	color_Hex_rgb@hex+2,c
+   916  000172  0E00               	movlw	0
+   917  000174  6E04               	movwf	color_Hex_rgb@hex+3,c
+   918  000176  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+   919  00017A  0060  F004  F02E   	movff	?_color_Hex_rgb,main@navy
+   920  000180  0060  F008  F02F   	movff	?_color_Hex_rgb+1,main@navy+1
+   921  000186  0060  F00C  F030   	movff	?_color_Hex_rgb+2,main@navy+2
+   922                           
+   923                           ;main.c: 262:     COLOR blue = color_Hex_rgb(0x0074D9);
+   924  00018C  0ED9               	movlw	217
+   925  00018E  6E01               	movwf	color_Hex_rgb@hex,c
+   926  000190  0E74               	movlw	116
+   927  000192  6E02               	movwf	color_Hex_rgb@hex+1,c
+   928  000194  0E00               	movlw	0
+   929  000196  6E03               	movwf	color_Hex_rgb@hex+2,c
+   930  000198  0E00               	movlw	0
+   931  00019A  6E04               	movwf	color_Hex_rgb@hex+3,c
+   932  00019C  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+   933  0001A0  0060  F004  F00A   	movff	?_color_Hex_rgb,main@blue
+   934  0001A6  0060  F008  F00B   	movff	?_color_Hex_rgb+1,main@blue+1
+   935  0001AC  0060  F00C  F00C   	movff	?_color_Hex_rgb+2,main@blue+2
+   936                           
+   937                           ;main.c: 263:     COLOR aqua = color_Hex_rgb(0x7FDBFF);
+   938  0001B2  0EFF               	movlw	255
+   939  0001B4  6E01               	movwf	color_Hex_rgb@hex,c
+   940  0001B6  0EDB               	movlw	219
+   941  0001B8  6E02               	movwf	color_Hex_rgb@hex+1,c
+   942  0001BA  0E7F               	movlw	127
+   943  0001BC  6E03               	movwf	color_Hex_rgb@hex+2,c
+   944  0001BE  0E00               	movlw	0
+   945  0001C0  6E04               	movwf	color_Hex_rgb@hex+3,c
+   946  0001C2  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+   947  0001C6  0060  F004  F00D   	movff	?_color_Hex_rgb,main@aqua
+   948  0001CC  0060  F008  F00E   	movff	?_color_Hex_rgb+1,main@aqua+1
+   949  0001D2  0060  F00C  F00F   	movff	?_color_Hex_rgb+2,main@aqua+2
+   950                           
+   951                           ;main.c: 264:     COLOR teal = color_Hex_rgb(0x39CCCC);
+   952  0001D8  0ECC               	movlw	204
+   953  0001DA  6E01               	movwf	color_Hex_rgb@hex,c
+   954  0001DC  0ECC               	movlw	204
+   955  0001DE  6E02               	movwf	color_Hex_rgb@hex+1,c
+   956  0001E0  0E39               	movlw	57
+   957  0001E2  6E03               	movwf	color_Hex_rgb@hex+2,c
+   958  0001E4  0E00               	movlw	0
+   959  0001E6  6E04               	movwf	color_Hex_rgb@hex+3,c
+   960  0001E8  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+   961  0001EC  0060  F004  F010   	movff	?_color_Hex_rgb,main@teal
+   962  0001F2  0060  F008  F011   	movff	?_color_Hex_rgb+1,main@teal+1
+   963  0001F8  0060  F00C  F012   	movff	?_color_Hex_rgb+2,main@teal+2
+   964                           
+   965                           ;main.c: 265:     COLOR olive = color_Hex_rgb(0x3D9970);
+   966  0001FE  0E70               	movlw	112
+   967  000200  6E01               	movwf	color_Hex_rgb@hex,c
+   968  000202  0E99               	movlw	153
+   969  000204  6E02               	movwf	color_Hex_rgb@hex+1,c
+   970  000206  0E3D               	movlw	61
+   971  000208  6E03               	movwf	color_Hex_rgb@hex+2,c
+   972  00020A  0E00               	movlw	0
+   973  00020C  6E04               	movwf	color_Hex_rgb@hex+3,c
+   974  00020E  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+   975  000212  0060  F004  F013   	movff	?_color_Hex_rgb,main@olive
+   976  000218  0060  F008  F014   	movff	?_color_Hex_rgb+1,main@olive+1
+   977  00021E  0060  F00C  F015   	movff	?_color_Hex_rgb+2,main@olive+2
+   978                           
+   979                           ;main.c: 266:     COLOR green = color_Hex_rgb(0x2ECC40);
+   980  000224  0E40               	movlw	64
+   981  000226  6E01               	movwf	color_Hex_rgb@hex,c
+   982  000228  0ECC               	movlw	204
+   983  00022A  6E02               	movwf	color_Hex_rgb@hex+1,c
+   984  00022C  0E2E               	movlw	46
+   985  00022E  6E03               	movwf	color_Hex_rgb@hex+2,c
+   986  000230  0E00               	movlw	0
+   987  000232  6E04               	movwf	color_Hex_rgb@hex+3,c
+   988  000234  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+   989  000238  0060  F004  F016   	movff	?_color_Hex_rgb,main@green
+   990  00023E  0060  F008  F017   	movff	?_color_Hex_rgb+1,main@green+1
+   991  000244  0060  F00C  F018   	movff	?_color_Hex_rgb+2,main@green+2
+   992                           
+   993                           ;main.c: 267:     COLOR lime = color_Hex_rgb(0x01FF70);
+   994  00024A  0E70               	movlw	112
+   995  00024C  6E01               	movwf	color_Hex_rgb@hex,c
+   996  00024E  0EFF               	movlw	255
+   997  000250  6E02               	movwf	color_Hex_rgb@hex+1,c
+   998  000252  0E01               	movlw	1
+   999  000254  6E03               	movwf	color_Hex_rgb@hex+2,c
+  1000  000256  0E00               	movlw	0
+  1001  000258  6E04               	movwf	color_Hex_rgb@hex+3,c
+  1002  00025A  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+  1003  00025E  0060  F004  F019   	movff	?_color_Hex_rgb,main@lime
+  1004  000264  0060  F008  F01A   	movff	?_color_Hex_rgb+1,main@lime+1
+  1005  00026A  0060  F00C  F01B   	movff	?_color_Hex_rgb+2,main@lime+2
+  1006                           
+  1007                           ;main.c: 268:     COLOR yellow = color_Hex_rgb(0xFFDC00);
+  1008  000270  0E00               	movlw	0
+  1009  000272  6E01               	movwf	color_Hex_rgb@hex,c
+  1010  000274  0EDC               	movlw	220
+  1011  000276  6E02               	movwf	color_Hex_rgb@hex+1,c
+  1012  000278  0EFF               	movlw	255
+  1013  00027A  6E03               	movwf	color_Hex_rgb@hex+2,c
+  1014  00027C  0E00               	movlw	0
+  1015  00027E  6E04               	movwf	color_Hex_rgb@hex+3,c
+  1016  000280  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+  1017  000284  0060  F004  F01C   	movff	?_color_Hex_rgb,main@yellow
+  1018  00028A  0060  F008  F01D   	movff	?_color_Hex_rgb+1,main@yellow+1
+  1019  000290  0060  F00C  F01E   	movff	?_color_Hex_rgb+2,main@yellow+2
+  1020                           
+  1021                           ;main.c: 269:     COLOR orange = color_Hex_rgb(0xFF851B);
+  1022  000296  0E1B               	movlw	27
+  1023  000298  6E01               	movwf	color_Hex_rgb@hex,c
+  1024  00029A  0E85               	movlw	133
+  1025  00029C  6E02               	movwf	color_Hex_rgb@hex+1,c
+  1026  00029E  0EFF               	movlw	255
+  1027  0002A0  6E03               	movwf	color_Hex_rgb@hex+2,c
+  1028  0002A2  0E00               	movlw	0
+  1029  0002A4  6E04               	movwf	color_Hex_rgb@hex+3,c
+  1030  0002A6  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+  1031  0002AA  0060  F004  F01F   	movff	?_color_Hex_rgb,main@orange
+  1032  0002B0  0060  F008  F020   	movff	?_color_Hex_rgb+1,main@orange+1
+  1033  0002B6  0060  F00C  F021   	movff	?_color_Hex_rgb+2,main@orange+2
+  1034                           
+  1035                           ;main.c: 270:     COLOR red = color_Hex_rgb(0xFF4136);
+  1036  0002BC  0E36               	movlw	54
+  1037  0002BE  6E01               	movwf	color_Hex_rgb@hex,c
+  1038  0002C0  0E41               	movlw	65
+  1039  0002C2  6E02               	movwf	color_Hex_rgb@hex+1,c
+  1040  0002C4  0EFF               	movlw	255
+  1041  0002C6  6E03               	movwf	color_Hex_rgb@hex+2,c
+  1042  0002C8  0E00               	movlw	0
+  1043  0002CA  6E04               	movwf	color_Hex_rgb@hex+3,c
+  1044  0002CC  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+  1045  0002D0  0060  F004  F022   	movff	?_color_Hex_rgb,main@red
+  1046  0002D6  0060  F008  F023   	movff	?_color_Hex_rgb+1,main@red+1
+  1047  0002DC  0060  F00C  F024   	movff	?_color_Hex_rgb+2,main@red+2
+  1048                           
+  1049                           ;main.c: 271:     COLOR marron = color_Hex_rgb(0x85144b);
+  1050  0002E2  0E4B               	movlw	75
+  1051  0002E4  6E01               	movwf	color_Hex_rgb@hex,c
+  1052  0002E6  0E14               	movlw	20
+  1053  0002E8  6E02               	movwf	color_Hex_rgb@hex+1,c
+  1054  0002EA  0E85               	movlw	133
+  1055  0002EC  6E03               	movwf	color_Hex_rgb@hex+2,c
+  1056  0002EE  0E00               	movlw	0
+  1057  0002F0  6E04               	movwf	color_Hex_rgb@hex+3,c
+  1058  0002F2  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+  1059  0002F6  0060  F004  F025   	movff	?_color_Hex_rgb,main@marron
+  1060  0002FC  0060  F008  F026   	movff	?_color_Hex_rgb+1,main@marron+1
+  1061  000302  0060  F00C  F027   	movff	?_color_Hex_rgb+2,main@marron+2
+  1062                           
+  1063                           ;main.c: 272:     COLOR fushcia = color_Hex_rgb(0xF012BE);
+  1064  000308  0EBE               	movlw	190
+  1065  00030A  6E01               	movwf	color_Hex_rgb@hex,c
+  1066  00030C  0E12               	movlw	18
+  1067  00030E  6E02               	movwf	color_Hex_rgb@hex+1,c
+  1068  000310  0EF0               	movlw	240
+  1069  000312  6E03               	movwf	color_Hex_rgb@hex+2,c
+  1070  000314  0E00               	movlw	0
+  1071  000316  6E04               	movwf	color_Hex_rgb@hex+3,c
+  1072  000318  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+  1073  00031C  0060  F004  F028   	movff	?_color_Hex_rgb,main@fushcia
+  1074  000322  0060  F008  F029   	movff	?_color_Hex_rgb+1,main@fushcia+1
+  1075  000328  0060  F00C  F02A   	movff	?_color_Hex_rgb+2,main@fushcia+2
+  1076                           
+  1077                           ;main.c: 273:     COLOR purple = color_Hex_rgb(0xB10DC9);
+  1078  00032E  0EC9               	movlw	201
+  1079  000330  6E01               	movwf	color_Hex_rgb@hex,c
+  1080  000332  0E0D               	movlw	13
+  1081  000334  6E02               	movwf	color_Hex_rgb@hex+1,c
+  1082  000336  0EB1               	movlw	177
+  1083  000338  6E03               	movwf	color_Hex_rgb@hex+2,c
+  1084  00033A  0E00               	movlw	0
+  1085  00033C  6E04               	movwf	color_Hex_rgb@hex+3,c
+  1086  00033E  ECCB  F003         	call	_color_Hex_rgb	;wreg free
+  1087  000342  0060  F004  F02B   	movff	?_color_Hex_rgb,main@purple
+  1088  000348  0060  F008  F02C   	movff	?_color_Hex_rgb+1,main@purple+1
+  1089  00034E  0060  F00C  F02D   	movff	?_color_Hex_rgb+2,main@purple+2
+  1090  000354                     l1143:
+  1091                           
+  1092                           ;main.c: 279:  {;main.c: 280:   red_reg = 255;
+  1093  000354  6836               	setf	_red_reg,c	;volatile
+  1094                           
+  1095                           ;main.c: 281:   green_reg = 0;
+  1096  000356  0E00               	movlw	0
+  1097  000358  6E35               	movwf	_green_reg,c	;volatile
+  1098                           
+  1099                           ;main.c: 282:   blue_reg = 0;
+  1100  00035A  0E00               	movlw	0
+  1101  00035C  6E34               	movwf	_blue_reg,c	;volatile
+  1102                           
+  1103                           ;main.c: 283:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1104  00035E  0E21               	movlw	33
+  1105  000360  6E09               	movwf	(??_main+1)& (0+255),c
+  1106  000362  0E78               	movlw	120
+  1107  000364  6E08               	movwf	??_main& (0+255),c
+  1108  000366  0E98               	movlw	152
+  1109  000368                     u197:
+  1110  000368  2EE8               	decfsz	wreg,f,c
+  1111  00036A  D7FE               	bra	u197
+  1112  00036C  2E08               	decfsz	??_main& (0+255),f,c
+  1113  00036E  D7FC               	bra	u197
+  1114  000370  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1115  000372  D7FA               	bra	u197
+  1116  000374  D000               	nop2	
+  1117                           
+  1118                           ;main.c: 284:   red_reg = 0;
+  1119  000376  0E00               	movlw	0
+  1120  000378  6E36               	movwf	_red_reg,c	;volatile
+  1121                           
+  1122                           ;main.c: 285:   green_reg = 255;
+  1123  00037A  6835               	setf	_green_reg,c	;volatile
+  1124                           
+  1125                           ;main.c: 286:   blue_reg = 0;
+  1126  00037C  0E00               	movlw	0
+  1127  00037E  6E34               	movwf	_blue_reg,c	;volatile
+  1128                           
+  1129                           ;main.c: 287:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1130  000380  0E21               	movlw	33
+  1131  000382  6E09               	movwf	(??_main+1)& (0+255),c
+  1132  000384  0E78               	movlw	120
+  1133  000386  6E08               	movwf	??_main& (0+255),c
+  1134  000388  0E98               	movlw	152
+  1135  00038A                     u207:
+  1136  00038A  2EE8               	decfsz	wreg,f,c
+  1137  00038C  D7FE               	bra	u207
+  1138  00038E  2E08               	decfsz	??_main& (0+255),f,c
+  1139  000390  D7FC               	bra	u207
+  1140  000392  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1141  000394  D7FA               	bra	u207
+  1142  000396  D000               	nop2	
+  1143                           
+  1144                           ;main.c: 288:   red_reg = 0;
+  1145  000398  0E00               	movlw	0
+  1146  00039A  6E36               	movwf	_red_reg,c	;volatile
+  1147                           
+  1148                           ;main.c: 289:   green_reg = 0;
+  1149  00039C  0E00               	movlw	0
+  1150  00039E  6E35               	movwf	_green_reg,c	;volatile
+  1151                           
+  1152                           ;main.c: 290:   blue_reg = 255;
+  1153  0003A0  6834               	setf	_blue_reg,c	;volatile
+  1154                           
+  1155                           ;main.c: 291:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1156  0003A2  0E21               	movlw	33
+  1157  0003A4  6E09               	movwf	(??_main+1)& (0+255),c
+  1158  0003A6  0E78               	movlw	120
+  1159  0003A8  6E08               	movwf	??_main& (0+255),c
+  1160  0003AA  0E98               	movlw	152
+  1161  0003AC                     u217:
+  1162  0003AC  2EE8               	decfsz	wreg,f,c
+  1163  0003AE  D7FE               	bra	u217
+  1164  0003B0  2E08               	decfsz	??_main& (0+255),f,c
+  1165  0003B2  D7FC               	bra	u217
+  1166  0003B4  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1167  0003B6  D7FA               	bra	u217
+  1168  0003B8  D000               	nop2	
+  1169                           
+  1170                           ;main.c: 293:         for (int k=0; k<360; k++)
+  1171  0003BA  0E00               	movlw	0
+  1172  0003BC  6E32               	movwf	main@k+1,c
+  1173  0003BE  0E00               	movlw	0
+  1174  0003C0  6E31               	movwf	main@k,c
+  1175  0003C2                     l1173:
+  1176                           
+  1177                           ;main.c: 294:         {;main.c: 295:             red_reg = lights[(k+120)%360];
+  1178  0003C2  0E78               	movlw	120
+  1179  0003C4  2431               	addwf	main@k,w,c
+  1180  0003C6  6E01               	movwf	___awmod@dividend,c
+  1181  0003C8  0E00               	movlw	0
+  1182  0003CA  2032               	addwfc	main@k+1,w,c
+  1183  0003CC  6E02               	movwf	___awmod@dividend+1,c
+  1184  0003CE  0E01               	movlw	1
+  1185  0003D0  6E04               	movwf	___awmod@divisor+1,c
+  1186  0003D2  0E68               	movlw	104
+  1187  0003D4  6E03               	movwf	___awmod@divisor,c
+  1188  0003D6  EC6C  F003         	call	___awmod	;wreg free
+  1189  0003DA  0E97               	movlw	low _lights
+  1190  0003DC  2401               	addwf	?___awmod,w,c
+  1191  0003DE  6EF6               	movwf	tblptrl,c
+  1192  0003E0  0E7E               	movlw	high _lights
+  1193  0003E2  2002               	addwfc	?___awmod+1,w,c
+  1194  0003E4  6EF7               	movwf	tblptrh,c
+  1195  0003E6                     	if	0	;There are less than 3 active tblptr bytes
+  1196  0003E6                     	endif
+  1197  0003E6  0008               	tblrd		*
+  1198  0003E8  006F FFD4  F036    	movff	tablat,_red_reg	;volatile
+  1199                           
+  1200                           ;main.c: 296:             green_reg = lights[k];
+  1201  0003EE  0E97               	movlw	low _lights
+  1202  0003F0  2431               	addwf	main@k,w,c
+  1203  0003F2  6EF6               	movwf	tblptrl,c
+  1204  0003F4  0E7E               	movlw	high _lights
+  1205  0003F6  2032               	addwfc	main@k+1,w,c
+  1206  0003F8  6EF7               	movwf	tblptrh,c
+  1207  0003FA                     	if	0	;There are less than 3 active tblptr bytes
+  1208  0003FA                     	endif
+  1209  0003FA  0008               	tblrd		*
+  1210  0003FC  006F FFD4  F035    	movff	tablat,_green_reg	;volatile
+  1211                           
+  1212                           ;main.c: 297:             blue_reg = lights[(k+240)%360];
+  1213  000402  0EF0               	movlw	240
+  1214  000404  2431               	addwf	main@k,w,c
+  1215  000406  6E01               	movwf	___awmod@dividend,c
+  1216  000408  0E00               	movlw	0
+  1217  00040A  2032               	addwfc	main@k+1,w,c
+  1218  00040C  6E02               	movwf	___awmod@dividend+1,c
+  1219  00040E  0E01               	movlw	1
+  1220  000410  6E04               	movwf	___awmod@divisor+1,c
+  1221  000412  0E68               	movlw	104
+  1222  000414  6E03               	movwf	___awmod@divisor,c
+  1223  000416  EC6C  F003         	call	___awmod	;wreg free
+  1224  00041A  0E97               	movlw	low _lights
+  1225  00041C  2401               	addwf	?___awmod,w,c
+  1226  00041E  6EF6               	movwf	tblptrl,c
+  1227  000420  0E7E               	movlw	high _lights
+  1228  000422  2002               	addwfc	?___awmod+1,w,c
+  1229  000424  6EF7               	movwf	tblptrh,c
+  1230  000426                     	if	0	;There are less than 3 active tblptr bytes
+  1231  000426                     	endif
+  1232  000426  0008               	tblrd		*
+  1233  000428  006F FFD4  F034    	movff	tablat,_blue_reg	;volatile
+  1234                           
+  1235                           ;main.c: 298:             _delay((unsigned long)((1)*(64000000ul/4000.0)));
+  1236  00042E  0E15               	movlw	21
+  1237  000430  6E08               	movwf	??_main& (0+255),c
+  1238  000432  0EC6               	movlw	198
+  1239  000434                     u227:
+  1240  000434  2EE8               	decfsz	wreg,f,c
+  1241  000436  D7FE               	bra	u227
+  1242  000438  2E08               	decfsz	??_main& (0+255),f,c
+  1243  00043A  D7FC               	bra	u227
+  1244  00043C  D000               	nop2	
+  1245                           
+  1246                           ;main.c: 299:         }
+  1247  00043E  4A31               	infsnz	main@k,f,c
+  1248  000440  2A32               	incf	main@k+1,f,c
+  1249  000442  BE32               	btfsc	main@k+1,7,c
+  1250  000444  D7BE               	goto	l1173
+  1251  000446  0E68               	movlw	104
+  1252  000448  5C31               	subwf	main@k,w,c
+  1253  00044A  0E01               	movlw	1
+  1254  00044C  5832               	subwfb	main@k+1,w,c
+  1255  00044E  A0D8               	btfss	status,0,c
+  1256  000450  D7B8               	goto	l1173
+  1257                           
+  1258                           ;main.c: 301:         set_color(navy);
+  1259  000452  0060  F0B8  F001   	movff	main@navy,set_color@color
+  1260  000458  0060  F0BC  F002   	movff	main@navy+1,set_color@color+1
+  1261  00045E  0060  F0C0  F003   	movff	main@navy+2,set_color@color+2
+  1262  000464  ECEC  F003         	call	_set_color	;wreg free
+  1263                           
+  1264                           ;main.c: 302:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1265  000468  0E21               	movlw	33
+  1266  00046A  6E09               	movwf	(??_main+1)& (0+255),c
+  1267  00046C  0E78               	movlw	120
+  1268  00046E  6E08               	movwf	??_main& (0+255),c
+  1269  000470  0E98               	movlw	152
+  1270  000472                     u237:
+  1271  000472  2EE8               	decfsz	wreg,f,c
+  1272  000474  D7FE               	bra	u237
+  1273  000476  2E08               	decfsz	??_main& (0+255),f,c
+  1274  000478  D7FC               	bra	u237
+  1275  00047A  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1276  00047C  D7FA               	bra	u237
+  1277  00047E  D000               	nop2	
+  1278                           
+  1279                           ;main.c: 304:         set_color(blue);
+  1280  000480  0060  F028  F001   	movff	main@blue,set_color@color
+  1281  000486  0060  F02C  F002   	movff	main@blue+1,set_color@color+1
+  1282  00048C  0060  F030  F003   	movff	main@blue+2,set_color@color+2
+  1283  000492  ECEC  F003         	call	_set_color	;wreg free
+  1284                           
+  1285                           ;main.c: 305:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1286  000496  0E21               	movlw	33
+  1287  000498  6E09               	movwf	(??_main+1)& (0+255),c
+  1288  00049A  0E78               	movlw	120
+  1289  00049C  6E08               	movwf	??_main& (0+255),c
+  1290  00049E  0E98               	movlw	152
+  1291  0004A0                     u247:
+  1292  0004A0  2EE8               	decfsz	wreg,f,c
+  1293  0004A2  D7FE               	bra	u247
+  1294  0004A4  2E08               	decfsz	??_main& (0+255),f,c
+  1295  0004A6  D7FC               	bra	u247
+  1296  0004A8  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1297  0004AA  D7FA               	bra	u247
+  1298  0004AC  D000               	nop2	
+  1299                           
+  1300                           ;main.c: 307:         set_color(aqua);
+  1301  0004AE  0060  F034  F001   	movff	main@aqua,set_color@color
+  1302  0004B4  0060  F038  F002   	movff	main@aqua+1,set_color@color+1
+  1303  0004BA  0060  F03C  F003   	movff	main@aqua+2,set_color@color+2
+  1304  0004C0  ECEC  F003         	call	_set_color	;wreg free
+  1305                           
+  1306                           ;main.c: 308:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1307  0004C4  0E21               	movlw	33
+  1308  0004C6  6E09               	movwf	(??_main+1)& (0+255),c
+  1309  0004C8  0E78               	movlw	120
+  1310  0004CA  6E08               	movwf	??_main& (0+255),c
+  1311  0004CC  0E98               	movlw	152
+  1312  0004CE                     u257:
+  1313  0004CE  2EE8               	decfsz	wreg,f,c
+  1314  0004D0  D7FE               	bra	u257
+  1315  0004D2  2E08               	decfsz	??_main& (0+255),f,c
+  1316  0004D4  D7FC               	bra	u257
+  1317  0004D6  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1318  0004D8  D7FA               	bra	u257
+  1319  0004DA  D000               	nop2	
+  1320                           
+  1321                           ;main.c: 310:         set_color(teal);
+  1322  0004DC  0060  F040  F001   	movff	main@teal,set_color@color
+  1323  0004E2  0060  F044  F002   	movff	main@teal+1,set_color@color+1
+  1324  0004E8  0060  F048  F003   	movff	main@teal+2,set_color@color+2
+  1325  0004EE  ECEC  F003         	call	_set_color	;wreg free
+  1326                           
+  1327                           ;main.c: 311:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1328  0004F2  0E21               	movlw	33
+  1329  0004F4  6E09               	movwf	(??_main+1)& (0+255),c
+  1330  0004F6  0E78               	movlw	120
+  1331  0004F8  6E08               	movwf	??_main& (0+255),c
+  1332  0004FA  0E98               	movlw	152
+  1333  0004FC                     u267:
+  1334  0004FC  2EE8               	decfsz	wreg,f,c
+  1335  0004FE  D7FE               	bra	u267
+  1336  000500  2E08               	decfsz	??_main& (0+255),f,c
+  1337  000502  D7FC               	bra	u267
+  1338  000504  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1339  000506  D7FA               	bra	u267
+  1340  000508  D000               	nop2	
+  1341                           
+  1342                           ;main.c: 313:         set_color(olive);
+  1343  00050A  0060  F04C  F001   	movff	main@olive,set_color@color
+  1344  000510  0060  F050  F002   	movff	main@olive+1,set_color@color+1
+  1345  000516  0060  F054  F003   	movff	main@olive+2,set_color@color+2
+  1346  00051C  ECEC  F003         	call	_set_color	;wreg free
+  1347                           
+  1348                           ;main.c: 314:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1349  000520  0E21               	movlw	33
+  1350  000522  6E09               	movwf	(??_main+1)& (0+255),c
+  1351  000524  0E78               	movlw	120
+  1352  000526  6E08               	movwf	??_main& (0+255),c
+  1353  000528  0E98               	movlw	152
+  1354  00052A                     u277:
+  1355  00052A  2EE8               	decfsz	wreg,f,c
+  1356  00052C  D7FE               	bra	u277
+  1357  00052E  2E08               	decfsz	??_main& (0+255),f,c
+  1358  000530  D7FC               	bra	u277
+  1359  000532  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1360  000534  D7FA               	bra	u277
+  1361  000536  D000               	nop2	
+  1362                           
+  1363                           ;main.c: 316:         set_color(green);
+  1364  000538  0060  F058  F001   	movff	main@green,set_color@color
+  1365  00053E  0060  F05C  F002   	movff	main@green+1,set_color@color+1
+  1366  000544  0060  F060  F003   	movff	main@green+2,set_color@color+2
+  1367  00054A  ECEC  F003         	call	_set_color	;wreg free
+  1368                           
+  1369                           ;main.c: 317:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1370  00054E  0E21               	movlw	33
+  1371  000550  6E09               	movwf	(??_main+1)& (0+255),c
+  1372  000552  0E78               	movlw	120
+  1373  000554  6E08               	movwf	??_main& (0+255),c
+  1374  000556  0E98               	movlw	152
+  1375  000558                     u287:
+  1376  000558  2EE8               	decfsz	wreg,f,c
+  1377  00055A  D7FE               	bra	u287
+  1378  00055C  2E08               	decfsz	??_main& (0+255),f,c
+  1379  00055E  D7FC               	bra	u287
+  1380  000560  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1381  000562  D7FA               	bra	u287
+  1382  000564  D000               	nop2	
+  1383                           
+  1384                           ;main.c: 319:         set_color(lime);
+  1385  000566  0060  F064  F001   	movff	main@lime,set_color@color
+  1386  00056C  0060  F068  F002   	movff	main@lime+1,set_color@color+1
+  1387  000572  0060  F06C  F003   	movff	main@lime+2,set_color@color+2
+  1388  000578  ECEC  F003         	call	_set_color	;wreg free
+  1389                           
+  1390                           ;main.c: 320:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1391  00057C  0E21               	movlw	33
+  1392  00057E  6E09               	movwf	(??_main+1)& (0+255),c
+  1393  000580  0E78               	movlw	120
+  1394  000582  6E08               	movwf	??_main& (0+255),c
+  1395  000584  0E98               	movlw	152
+  1396  000586                     u297:
+  1397  000586  2EE8               	decfsz	wreg,f,c
+  1398  000588  D7FE               	bra	u297
+  1399  00058A  2E08               	decfsz	??_main& (0+255),f,c
+  1400  00058C  D7FC               	bra	u297
+  1401  00058E  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1402  000590  D7FA               	bra	u297
+  1403  000592  D000               	nop2	
+  1404                           
+  1405                           ;main.c: 322:         set_color(navy);
+  1406  000594  0060  F0B8  F001   	movff	main@navy,set_color@color
+  1407  00059A  0060  F0BC  F002   	movff	main@navy+1,set_color@color+1
+  1408  0005A0  0060  F0C0  F003   	movff	main@navy+2,set_color@color+2
+  1409  0005A6  ECEC  F003         	call	_set_color	;wreg free
+  1410                           
+  1411                           ;main.c: 323:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1412  0005AA  0E21               	movlw	33
+  1413  0005AC  6E09               	movwf	(??_main+1)& (0+255),c
+  1414  0005AE  0E78               	movlw	120
+  1415  0005B0  6E08               	movwf	??_main& (0+255),c
+  1416  0005B2  0E98               	movlw	152
+  1417  0005B4                     u307:
+  1418  0005B4  2EE8               	decfsz	wreg,f,c
+  1419  0005B6  D7FE               	bra	u307
+  1420  0005B8  2E08               	decfsz	??_main& (0+255),f,c
+  1421  0005BA  D7FC               	bra	u307
+  1422  0005BC  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1423  0005BE  D7FA               	bra	u307
+  1424  0005C0  D000               	nop2	
+  1425                           
+  1426                           ;main.c: 325:         set_color(yellow);
+  1427  0005C2  0060  F070  F001   	movff	main@yellow,set_color@color
+  1428  0005C8  0060  F074  F002   	movff	main@yellow+1,set_color@color+1
+  1429  0005CE  0060  F078  F003   	movff	main@yellow+2,set_color@color+2
+  1430  0005D4  ECEC  F003         	call	_set_color	;wreg free
+  1431                           
+  1432                           ;main.c: 326:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1433  0005D8  0E21               	movlw	33
+  1434  0005DA  6E09               	movwf	(??_main+1)& (0+255),c
+  1435  0005DC  0E78               	movlw	120
+  1436  0005DE  6E08               	movwf	??_main& (0+255),c
+  1437  0005E0  0E98               	movlw	152
+  1438  0005E2                     u317:
+  1439  0005E2  2EE8               	decfsz	wreg,f,c
+  1440  0005E4  D7FE               	bra	u317
+  1441  0005E6  2E08               	decfsz	??_main& (0+255),f,c
+  1442  0005E8  D7FC               	bra	u317
+  1443  0005EA  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1444  0005EC  D7FA               	bra	u317
+  1445  0005EE  D000               	nop2	
+  1446                           
+  1447                           ;main.c: 328:         set_color(orange);
+  1448  0005F0  0060  F07C  F001   	movff	main@orange,set_color@color
+  1449  0005F6  0060  F080  F002   	movff	main@orange+1,set_color@color+1
+  1450  0005FC  0060  F084  F003   	movff	main@orange+2,set_color@color+2
+  1451  000602  ECEC  F003         	call	_set_color	;wreg free
+  1452                           
+  1453                           ;main.c: 329:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1454  000606  0E21               	movlw	33
+  1455  000608  6E09               	movwf	(??_main+1)& (0+255),c
+  1456  00060A  0E78               	movlw	120
+  1457  00060C  6E08               	movwf	??_main& (0+255),c
+  1458  00060E  0E98               	movlw	152
+  1459  000610                     u327:
+  1460  000610  2EE8               	decfsz	wreg,f,c
+  1461  000612  D7FE               	bra	u327
+  1462  000614  2E08               	decfsz	??_main& (0+255),f,c
+  1463  000616  D7FC               	bra	u327
+  1464  000618  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1465  00061A  D7FA               	bra	u327
+  1466  00061C  D000               	nop2	
+  1467                           
+  1468                           ;main.c: 331:         set_color(red);
+  1469  00061E  0060  F088  F001   	movff	main@red,set_color@color
+  1470  000624  0060  F08C  F002   	movff	main@red+1,set_color@color+1
+  1471  00062A  0060  F090  F003   	movff	main@red+2,set_color@color+2
+  1472  000630  ECEC  F003         	call	_set_color	;wreg free
+  1473                           
+  1474                           ;main.c: 332:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1475  000634  0E21               	movlw	33
+  1476  000636  6E09               	movwf	(??_main+1)& (0+255),c
+  1477  000638  0E78               	movlw	120
+  1478  00063A  6E08               	movwf	??_main& (0+255),c
+  1479  00063C  0E98               	movlw	152
+  1480  00063E                     u337:
+  1481  00063E  2EE8               	decfsz	wreg,f,c
+  1482  000640  D7FE               	bra	u337
+  1483  000642  2E08               	decfsz	??_main& (0+255),f,c
+  1484  000644  D7FC               	bra	u337
+  1485  000646  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1486  000648  D7FA               	bra	u337
+  1487  00064A  D000               	nop2	
+  1488                           
+  1489                           ;main.c: 334:         set_color(marron);
+  1490  00064C  0060  F094  F001   	movff	main@marron,set_color@color
+  1491  000652  0060  F098  F002   	movff	main@marron+1,set_color@color+1
+  1492  000658  0060  F09C  F003   	movff	main@marron+2,set_color@color+2
+  1493  00065E  ECEC  F003         	call	_set_color	;wreg free
+  1494                           
+  1495                           ;main.c: 335:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1496  000662  0E21               	movlw	33
+  1497  000664  6E09               	movwf	(??_main+1)& (0+255),c
+  1498  000666  0E78               	movlw	120
+  1499  000668  6E08               	movwf	??_main& (0+255),c
+  1500  00066A  0E98               	movlw	152
+  1501  00066C                     u347:
+  1502  00066C  2EE8               	decfsz	wreg,f,c
+  1503  00066E  D7FE               	bra	u347
+  1504  000670  2E08               	decfsz	??_main& (0+255),f,c
+  1505  000672  D7FC               	bra	u347
+  1506  000674  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1507  000676  D7FA               	bra	u347
+  1508  000678  D000               	nop2	
+  1509                           
+  1510                           ;main.c: 337:         set_color(fushcia);
+  1511  00067A  0060  F0A0  F001   	movff	main@fushcia,set_color@color
+  1512  000680  0060  F0A4  F002   	movff	main@fushcia+1,set_color@color+1
+  1513  000686  0060  F0A8  F003   	movff	main@fushcia+2,set_color@color+2
+  1514  00068C  ECEC  F003         	call	_set_color	;wreg free
+  1515                           
+  1516                           ;main.c: 338:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1517  000690  0E21               	movlw	33
+  1518  000692  6E09               	movwf	(??_main+1)& (0+255),c
+  1519  000694  0E78               	movlw	120
+  1520  000696  6E08               	movwf	??_main& (0+255),c
+  1521  000698  0E98               	movlw	152
+  1522  00069A                     u357:
+  1523  00069A  2EE8               	decfsz	wreg,f,c
+  1524  00069C  D7FE               	bra	u357
+  1525  00069E  2E08               	decfsz	??_main& (0+255),f,c
+  1526  0006A0  D7FC               	bra	u357
+  1527  0006A2  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1528  0006A4  D7FA               	bra	u357
+  1529  0006A6  D000               	nop2	
+  1530                           
+  1531                           ;main.c: 340:         set_color(purple);
+  1532  0006A8  0060  F0AC  F001   	movff	main@purple,set_color@color
+  1533  0006AE  0060  F0B0  F002   	movff	main@purple+1,set_color@color+1
+  1534  0006B4  0060  F0B4  F003   	movff	main@purple+2,set_color@color+2
+  1535  0006BA  ECEC  F003         	call	_set_color	;wreg free
+  1536                           
+  1537                           ;main.c: 341:   _delay((unsigned long)((400)*(64000000ul/4000.0)));
+  1538  0006BE  0E21               	movlw	33
+  1539  0006C0  6E09               	movwf	(??_main+1)& (0+255),c
+  1540  0006C2  0E78               	movlw	120
+  1541  0006C4  6E08               	movwf	??_main& (0+255),c
+  1542  0006C6  0E98               	movlw	152
+  1543  0006C8                     u367:
+  1544  0006C8  2EE8               	decfsz	wreg,f,c
+  1545  0006CA  D7FE               	bra	u367
+  1546  0006CC  2E08               	decfsz	??_main& (0+255),f,c
+  1547  0006CE  D7FC               	bra	u367
+  1548  0006D0  2E09               	decfsz	(??_main+1)& (0+255),f,c
+  1549  0006D2  D7FA               	bra	u367
+  1550  0006D4  D000               	nop2	
+  1551                           
+  1552                           ;main.c: 342:     }
+  1553  0006D6  D63E               	goto	l1143
+  1554  0006D8                     __end_of_main:
+  1555                           	opt callstack 0
+  1556                           
+  1557 ;; *************** function _set_color *****************
+  1558 ;; Defined at:
+  1559 ;;		line 345 in file "main.c"
+  1560 ;; Parameters:    Size  Location     Type
+  1561 ;;  color           3    0[COMRAM] struct .
+  1562 ;; Auto vars:     Size  Location     Type
+  1563 ;;		None
+  1564 ;; Return value:  Size  Location     Type
+  1565 ;;                  1    wreg      void 
+  1566 ;; Registers used:
+  1567 ;;		None
+  1568 ;; Tracked objects:
+  1569 ;;		On entry : 0/0
+  1570 ;;		On exit  : 0/0
+  1571 ;;		Unchanged: 0/0
+  1572 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1573 ;;      Params:         3       0       0       0       0       0       0       0       0
+  1574 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  1575 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1576 ;;      Totals:         3       0       0       0       0       0       0       0       0
+  1577 ;;Total ram usage:        3 bytes
+  1578 ;; Hardware stack levels used:    1
+  1579 ;; Hardware stack levels required when called:    1
+  1580 ;; This function calls:
+  1581 ;;		Nothing
+  1582 ;; This function is called by:
+  1583 ;;		_main
+  1584 ;; This function uses a non-reentrant model
+  1585 ;;
+  1586                           
+  1587                           	psect	text1
+  1588  0007D8                     __ptext1:
+  1589                           	opt callstack 0
+  1590  0007D8                     _set_color:
+  1591                           	opt callstack 29
+  1592                           
+  1593                           ;main.c: 345: static __attribute__((inline)) void set_color(COLOR color);main.c: 346: {;
+      +                          main.c: 347:     red_reg = color.r;
+  1594                           
+  1595                           ;incstack = 0
+  1596  0007D8  0060  F004  F036   	movff	set_color@color,_red_reg	;volatile
+  1597                           
+  1598                           ;main.c: 348:     green_reg = color.g;
+  1599  0007DE  0060  F008  F035   	movff	set_color@color+1,_green_reg	;volatile
+  1600                           
+  1601                           ;main.c: 349:     blue_reg = color.b;
+  1602  0007E4  0060  F00C  F034   	movff	set_color@color+2,_blue_reg	;volatile
+  1603  0007EA  0012               	return		;funcret
+  1604  0007EC                     __end_of_set_color:
+  1605                           	opt callstack 0
+  1606                           
+  1607 ;; *************** function _color_Hex_rgb *****************
+  1608 ;; Defined at:
+  1609 ;;		line 362 in file "main.c"
+  1610 ;; Parameters:    Size  Location     Type
+  1611 ;;  hex             4    0[COMRAM] unsigned long 
+  1612 ;; Auto vars:     Size  Location     Type
+  1613 ;;  new_color       3    4[COMRAM] struct .
+  1614 ;; Return value:  Size  Location     Type
+  1615 ;;                  3    0[COMRAM] struct .
+  1616 ;; Registers used:
+  1617 ;;		None
+  1618 ;; Tracked objects:
+  1619 ;;		On entry : 0/0
+  1620 ;;		On exit  : 0/0
+  1621 ;;		Unchanged: 0/0
+  1622 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1623 ;;      Params:         4       0       0       0       0       0       0       0       0
+  1624 ;;      Locals:         3       0       0       0       0       0       0       0       0
+  1625 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1626 ;;      Totals:         7       0       0       0       0       0       0       0       0
+  1627 ;;Total ram usage:        7 bytes
+  1628 ;; Hardware stack levels used:    1
+  1629 ;; Hardware stack levels required when called:    1
+  1630 ;; This function calls:
+  1631 ;;		Nothing
+  1632 ;; This function is called by:
+  1633 ;;		_main
+  1634 ;; This function uses a non-reentrant model
+  1635 ;;
+  1636                           
+  1637                           	psect	text2
+  1638  000796                     __ptext2:
+  1639                           	opt callstack 0
+  1640  000796                     _color_Hex_rgb:
+  1641                           	opt callstack 29
+  1642                           
+  1643                           ;main.c: 362: COLOR color_Hex_rgb(uint32_t hex);main.c: 363: {;main.c: 364:     COLOR ne
+      +                          w_color;;main.c: 365:     new_color.r = (hex >> 16) & 0xFF;
+  1644                           
+  1645                           ;incstack = 0
+  1646  000796  0060  F00C  F005   	movff	color_Hex_rgb@hex+2,color_Hex_rgb@new_color
+  1647                           
+  1648                           ;main.c: 366:     new_color.g = (hex >> 8) & 0xFF;
+  1649  00079C  0060  F008  F006   	movff	color_Hex_rgb@hex+1,color_Hex_rgb@new_color+1
+  1650                           
+  1651                           ;main.c: 367:     new_color.b = hex & 0xFF;
+  1652  0007A2  0060  F004  F007   	movff	color_Hex_rgb@hex,color_Hex_rgb@new_color+2
+  1653                           
+  1654                           ;main.c: 368:     return new_color;
+  1655  0007A8  0060  F014  F001   	movff	color_Hex_rgb@new_color,?_color_Hex_rgb
+  1656  0007AE  0060  F018  F002   	movff	color_Hex_rgb@new_color+1,?_color_Hex_rgb+1
+  1657  0007B4  0060  F01C  F003   	movff	color_Hex_rgb@new_color+2,?_color_Hex_rgb+2
+  1658  0007BA  0012               	return		;funcret
+  1659  0007BC                     __end_of_color_Hex_rgb:
+  1660                           	opt callstack 0
+  1661                           
+  1662 ;; *************** function ___awmod *****************
+  1663 ;; Defined at:
+  1664 ;;		line 7 in file "/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c"
+  1665 ;; Parameters:    Size  Location     Type
+  1666 ;;  dividend        2    0[COMRAM] int 
+  1667 ;;  divisor         2    2[COMRAM] int 
+  1668 ;; Auto vars:     Size  Location     Type
+  1669 ;;  sign            1    5[COMRAM] unsigned char 
+  1670 ;;  counter         1    4[COMRAM] unsigned char 
+  1671 ;; Return value:  Size  Location     Type
+  1672 ;;                  2    0[COMRAM] int 
+  1673 ;; Registers used:
+  1674 ;;		wreg, status,2, status,0
+  1675 ;; Tracked objects:
+  1676 ;;		On entry : 0/0
+  1677 ;;		On exit  : 0/0
+  1678 ;;		Unchanged: 0/0
+  1679 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1680 ;;      Params:         4       0       0       0       0       0       0       0       0
+  1681 ;;      Locals:         2       0       0       0       0       0       0       0       0
+  1682 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1683 ;;      Totals:         6       0       0       0       0       0       0       0       0
+  1684 ;;Total ram usage:        6 bytes
+  1685 ;; Hardware stack levels used:    1
+  1686 ;; Hardware stack levels required when called:    1
+  1687 ;; This function calls:
+  1688 ;;		Nothing
+  1689 ;; This function is called by:
+  1690 ;;		_main
+  1691 ;; This function uses a non-reentrant model
+  1692 ;;
+  1693                           
+  1694                           	psect	text3
+  1695  0006D8                     __ptext3:
+  1696                           	opt callstack 0
+  1697  0006D8                     ___awmod:
+  1698                           	opt callstack 29
+  1699                           
+  1700                           ;incstack = 0
+  1701  0006D8  0E00               	movlw	0
+  1702  0006DA  6E06               	movwf	___awmod@sign,c
+  1703  0006DC  AE02               	btfss	___awmod@dividend+1,7,c
+  1704  0006DE  D006               	goto	l1037
+  1705  0006E0  6C01               	negf	___awmod@dividend,c
+  1706  0006E2  1E02               	comf	___awmod@dividend+1,f,c
+  1707  0006E4  B0D8               	btfsc	status,0,c
+  1708  0006E6  2A02               	incf	___awmod@dividend+1,f,c
+  1709  0006E8  0E01               	movlw	1
+  1710  0006EA  6E06               	movwf	___awmod@sign,c
+  1711  0006EC                     l1037:
+  1712  0006EC  AE04               	btfss	___awmod@divisor+1,7,c
+  1713  0006EE  D004               	goto	l1041
+  1714  0006F0  6C03               	negf	___awmod@divisor,c
+  1715  0006F2  1E04               	comf	___awmod@divisor+1,f,c
+  1716  0006F4  B0D8               	btfsc	status,0,c
+  1717  0006F6  2A04               	incf	___awmod@divisor+1,f,c
+  1718  0006F8                     l1041:
+  1719  0006F8  5003               	movf	___awmod@divisor,w,c
+  1720  0006FA  1004               	iorwf	___awmod@divisor+1,w,c
+  1721  0006FC  B4D8               	btfsc	status,2,c
+  1722  0006FE  D018               	goto	l1057
+  1723  000700  0E01               	movlw	1
+  1724  000702  6E05               	movwf	___awmod@counter,c
+  1725  000704  D004               	goto	l1047
+  1726  000706                     l1045:
+  1727  000706  90D8               	bcf	status,0,c
+  1728  000708  3603               	rlcf	___awmod@divisor,f,c
+  1729  00070A  3604               	rlcf	___awmod@divisor+1,f,c
+  1730  00070C  2A05               	incf	___awmod@counter,f,c
+  1731  00070E                     l1047:
+  1732  00070E  AE04               	btfss	___awmod@divisor+1,7,c
+  1733  000710  D7FA               	goto	l1045
+  1734  000712                     u150:
+  1735  000712  5003               	movf	___awmod@divisor,w,c
+  1736  000714  5C01               	subwf	___awmod@dividend,w,c
+  1737  000716  5004               	movf	___awmod@divisor+1,w,c
+  1738  000718  5802               	subwfb	___awmod@dividend+1,w,c
+  1739  00071A  A0D8               	btfss	status,0,c
+  1740  00071C  D004               	goto	l1053
+  1741  00071E  5003               	movf	___awmod@divisor,w,c
+  1742  000720  5E01               	subwf	___awmod@dividend,f,c
+  1743  000722  5004               	movf	___awmod@divisor+1,w,c
+  1744  000724  5A02               	subwfb	___awmod@dividend+1,f,c
+  1745  000726                     l1053:
+  1746  000726  90D8               	bcf	status,0,c
+  1747  000728  3204               	rrcf	___awmod@divisor+1,f,c
+  1748  00072A  3203               	rrcf	___awmod@divisor,f,c
+  1749  00072C  2E05               	decfsz	___awmod@counter,f,c
+  1750  00072E  D7F1               	goto	u150
+  1751  000730                     l1057:
+  1752  000730  5006               	movf	___awmod@sign,w,c
+  1753  000732  B4D8               	btfsc	status,2,c
+  1754  000734  D004               	goto	l1061
+  1755  000736  6C01               	negf	___awmod@dividend,c
+  1756  000738  1E02               	comf	___awmod@dividend+1,f,c
+  1757  00073A  B0D8               	btfsc	status,0,c
+  1758  00073C  2A02               	incf	___awmod@dividend+1,f,c
+  1759  00073E                     l1061:
+  1760  00073E  0060  F004  F001   	movff	___awmod@dividend,?___awmod
+  1761  000744  0060  F008  F002   	movff	___awmod@dividend+1,?___awmod+1
+  1762  00074A  0012               	return		;funcret
+  1763  00074C                     __end_of___awmod:
+  1764                           	opt callstack 0
+  1765                           
+  1766 ;; *************** function _timer_tick *****************
+  1767 ;; Defined at:
+  1768 ;;		line 127 in file "main.c"
+  1769 ;; Parameters:    Size  Location     Type
+  1770 ;;		None
+  1771 ;; Auto vars:     Size  Location     Type
+  1772 ;;		None
+  1773 ;; Return value:  Size  Location     Type
+  1774 ;;                  1    wreg      void 
+  1775 ;; Registers used:
+  1776 ;;		wreg, status,2, status,0
+  1777 ;; Tracked objects:
+  1778 ;;		On entry : 0/0
+  1779 ;;		On exit  : 0/0
+  1780 ;;		Unchanged: 0/0
+  1781 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1782 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1783 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  1784 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1785 ;;      Totals:         0       0       0       0       0       0       0       0       0
+  1786 ;;Total ram usage:        0 bytes
+  1787 ;; Hardware stack levels used:    1
+  1788 ;; This function calls:
+  1789 ;;		Nothing
+  1790 ;; This function is called by:
+  1791 ;;		Interrupt level 2
+  1792 ;; This function uses a non-reentrant model
+  1793 ;;
+  1794                           
+  1795                           	psect	text4
+  1796  00074C                     __ptext4:
+  1797                           	opt callstack 0
+  1798  00074C                     _timer_tick:
+  1799                           	opt callstack 29
+  1800                           
+  1801                           ;main.c: 129:  if(counter == 255)
+  1802                           
+  1803                           ;incstack = 0
+  1804  00074C  2837               	incf	_counter,w,c	;volatile
+  1805  00074E  A4D8               	btfss	status,2,c
+  1806  000750  D00C               	goto	i2l847
+  1807                           
+  1808                           ;main.c: 130:  {;main.c: 131:   counter = 0;
+  1809  000752  0E00               	movlw	0
+  1810  000754  6E37               	movwf	_counter,c	;volatile
+  1811                           
+  1812                           ;main.c: 132:   LATA |= (enable & 0xFE);
+  1813  000756  5033               	movf	_enable,w,c	;volatile
+  1814  000758  0BFE               	andlw	254
+  1815  00075A  12BA               	iorwf	16314,f,c	;volatile
+  1816                           
+  1817                           ;main.c: 133:   LATC |= (enable & 0xFE);
+  1818  00075C  5033               	movf	_enable,w,c	;volatile
+  1819  00075E  0BFE               	andlw	254
+  1820  000760  12BC               	iorwf	16316,f,c	;volatile
+  1821                           
+  1822                           ;main.c: 134:   LATD |= (enable & 0xFE);
+  1823  000762  5033               	movf	_enable,w,c	;volatile
+  1824  000764  0BFE               	andlw	254
+  1825  000766  12BD               	iorwf	16317,f,c	;volatile
+  1826                           
+  1827                           ;main.c: 135:  }
+  1828  000768  D001               	goto	i2l849
+  1829  00076A                     i2l847:
+  1830  00076A  2A37               	incf	_counter,f,c	;volatile
+  1831  00076C                     i2l849:
+  1832                           
+  1833                           ;main.c: 138:  if(counter == red_reg) LATA &= 0x01;
+  1834  00076C  5036               	movf	_red_reg,w,c	;volatile
+  1835  00076E  1837               	xorwf	_counter,w,c	;volatile
+  1836  000770  A4D8               	btfss	status,2,c
+  1837  000772  D002               	goto	i2l95
+  1838  000774  0E01               	movlw	1
+  1839  000776  16BA               	andwf	16314,f,c	;volatile
+  1840  000778                     i2l95:
+  1841                           
+  1842                           ;main.c: 140:  if(counter == green_reg) LATC &= 0x01;
+  1843  000778  5035               	movf	_green_reg,w,c	;volatile
+  1844  00077A  1837               	xorwf	_counter,w,c	;volatile
+  1845  00077C  A4D8               	btfss	status,2,c
+  1846  00077E  D002               	goto	i2l96
+  1847  000780  0E01               	movlw	1
+  1848  000782  16BC               	andwf	16316,f,c	;volatile
+  1849  000784                     i2l96:
+  1850                           
+  1851                           ;main.c: 142:  if(counter == blue_reg) LATD &= 0x01;
+  1852  000784  5034               	movf	_blue_reg,w,c	;volatile
+  1853  000786  1837               	xorwf	_counter,w,c	;volatile
+  1854  000788  A4D8               	btfss	status,2,c
+  1855  00078A  D002               	goto	i2l857
+  1856  00078C  0E01               	movlw	1
+  1857  00078E  16BD               	andwf	16317,f,c	;volatile
+  1858  000790                     i2l857:
+  1859                           
+  1860                           ;main.c: 144:  PIR3bits.TMR0IF = 0;
+  1861  000790  0139               	movlb	57	; () banked
+  1862  000792  9FA3               	bcf	163,7,b	;volatile
+  1863                           
+  1864                           ; BSR set to: 57
+  1865  000794  0011               	retfie		f
+  1866  000796                     __end_of_timer_tick:
+  1867                           	opt callstack 0
+  1868                           
+  1869 ;; *************** function _DEFAULT_ISR *****************
+  1870 ;; Defined at:
+  1871 ;;		line 147 in file "main.c"
+  1872 ;; Parameters:    Size  Location     Type
+  1873 ;;		None
+  1874 ;; Auto vars:     Size  Location     Type
+  1875 ;;		None
+  1876 ;; Return value:  Size  Location     Type
+  1877 ;;                  1    wreg      void 
+  1878 ;; Registers used:
+  1879 ;;		None
+  1880 ;; Tracked objects:
+  1881 ;;		On entry : 0/0
+  1882 ;;		On exit  : 0/0
+  1883 ;;		Unchanged: 0/0
+  1884 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1885 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1886 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  1887 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1888 ;;      Totals:         0       0       0       0       0       0       0       0       0
+  1889 ;;Total ram usage:        0 bytes
+  1890 ;; Hardware stack levels used:    1
+  1891 ;; This function calls:
+  1892 ;;		Nothing
+  1893 ;; This function is called by:
+  1894 ;;		Interrupt level 2
+  1895 ;; This function uses a non-reentrant model
+  1896 ;;
+  1897                           
+  1898                           	psect	text5
+  1899  0007EC                     __ptext5:
+  1900                           	opt callstack 0
+  1901  0007EC                     _DEFAULT_ISR:
+  1902                           	opt callstack 29
+  1903                           
+  1904                           ; BSR set to: 57
+  1905                           ;incstack = 0
+  1906  0007EC  0011               	retfie		f
+  1907  0007EE                     __end_of_DEFAULT_ISR:
+  1908                           	opt callstack 0
+  1909                           
+  1910                           ;
+  1911                           ; Interrupt Vector Table @ 0x8
+  1912                           ;
+  1913                           
+  1914                           	psect	ivt0x8
+  1915  000008                     __pivt0x8:
+  1916                           	opt callstack 0
+  1917  000008                     ivt0x8_base:
+  1918                           	opt callstack 0
+  1919                           
+  1920                           ; Vector 0 : SWINT
+  1921  000008  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1922                           
+  1923                           ; Vector 1 : HLVD
+  1924  00000A  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1925                           
+  1926                           ; Vector 2 : OSF
+  1927  00000C  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1928                           
+  1929                           ; Vector 3 : CSW
+  1930  00000E  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1931                           
+  1932                           ; Vector 4 : NVM
+  1933  000010  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1934                           
+  1935                           ; Vector 5 : SCAN
+  1936  000012  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1937                           
+  1938                           ; Vector 6 : CRC
+  1939  000014  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1940                           
+  1941                           ; Vector 7 : IOC
+  1942  000016  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1943                           
+  1944                           ; Vector 8 : INT0
+  1945  000018  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1946                           
+  1947                           ; Vector 9 : ZCD
+  1948  00001A  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1949                           
+  1950                           ; Vector 10 : AD
+  1951  00001C  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1952                           
+  1953                           ; Vector 11 : ADT
+  1954  00001E  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1955                           
+  1956                           ; Vector 12 : CMP1
+  1957  000020  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1958                           
+  1959                           ; Vector 13 : SMT1
+  1960  000022  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1961                           
+  1962                           ; Vector 14 : SMT1PRA
+  1963  000024  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1964                           
+  1965                           ; Vector 15 : SMT1PRW
+  1966  000026  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1967                           
+  1968                           ; Vector 16 : DMA1SCNT
+  1969  000028  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1970                           
+  1971                           ; Vector 17 : DMA1DCNT
+  1972  00002A  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1973                           
+  1974                           ; Vector 18 : DMA1OR
+  1975  00002C  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1976                           
+  1977                           ; Vector 19 : DMA1A
+  1978  00002E  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1979                           
+  1980                           ; Vector 20 : SPI1RX
+  1981  000030  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1982                           
+  1983                           ; Vector 21 : SPI1TX
+  1984  000032  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1985                           
+  1986                           ; Vector 22 : SPI1
+  1987  000034  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1988                           
+  1989                           ; Vector 23 : I2C1RX
+  1990  000036  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1991                           
+  1992                           ; Vector 24 : I2C1TX
+  1993  000038  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1994                           
+  1995                           ; Vector 25 : I2C1
+  1996  00003A  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  1997                           
+  1998                           ; Vector 26 : I2C1E
+  1999  00003C  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2000                           
+  2001                           ; Vector 27 : U1RX
+  2002  00003E  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2003                           
+  2004                           ; Vector 28 : U1TX
+  2005  000040  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2006                           
+  2007                           ; Vector 29 : U1E
+  2008  000042  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2009                           
+  2010                           ; Vector 30 : U1
+  2011  000044  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2012                           
+  2013                           ; Vector 31 : TMR0
+  2014  000046  01D3               	dw	_timer_tick shr (0+2)
+  2015                           
+  2016                           ; Vector 32 : TMR1
+  2017  000048  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2018                           
+  2019                           ; Vector 33 : TMR1G
+  2020  00004A  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2021                           
+  2022                           ; Vector 34 : TMR2
+  2023  00004C  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2024                           
+  2025                           ; Vector 35 : CCP1
+  2026  00004E  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2027                           
+  2028                           ; Vector 36 : Undefined
+  2029  000050  002B               	dw	ivt0x8_undefint shr (0+2)
+  2030                           
+  2031                           ; Vector 37 : NCO1
+  2032  000052  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2033                           
+  2034                           ; Vector 38 : CWG1
+  2035  000054  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2036                           
+  2037                           ; Vector 39 : CLC1
+  2038  000056  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2039                           
+  2040                           ; Vector 40 : INT1
+  2041  000058  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2042                           
+  2043                           ; Vector 41 : CMP2
+  2044  00005A  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2045                           
+  2046                           ; Vector 42 : DMA2SCNT
+  2047  00005C  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2048                           
+  2049                           ; Vector 43 : DMA2DCNT
+  2050  00005E  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2051                           
+  2052                           ; Vector 44 : DMA2OR
+  2053  000060  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2054                           
+  2055                           ; Vector 45 : DMA2A
+  2056  000062  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2057                           
+  2058                           ; Vector 46 : I2C2RX
+  2059  000064  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2060                           
+  2061                           ; Vector 47 : I2C2TX
+  2062  000066  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2063                           
+  2064                           ; Vector 48 : I2C2
+  2065  000068  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2066                           
+  2067                           ; Vector 49 : I2C2E
+  2068  00006A  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2069                           
+  2070                           ; Vector 50 : U2RX
+  2071  00006C  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2072                           
+  2073                           ; Vector 51 : U2TX
+  2074  00006E  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2075                           
+  2076                           ; Vector 52 : U2E
+  2077  000070  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2078                           
+  2079                           ; Vector 53 : U2
+  2080  000072  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2081                           
+  2082                           ; Vector 54 : TMR3
+  2083  000074  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2084                           
+  2085                           ; Vector 55 : TMR3G
+  2086  000076  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2087                           
+  2088                           ; Vector 56 : TMR4
+  2089  000078  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2090                           
+  2091                           ; Vector 57 : CCP2
+  2092  00007A  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2093                           
+  2094                           ; Vector 58 : Undefined
+  2095  00007C  002B               	dw	ivt0x8_undefint shr (0+2)
+  2096                           
+  2097                           ; Vector 59 : CWG2
+  2098  00007E  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2099                           
+  2100                           ; Vector 60 : CLC2
+  2101  000080  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2102                           
+  2103                           ; Vector 61 : INT2
+  2104  000082  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2105                           
+  2106                           ; Vector 62 : Undefined
+  2107  000084  002B               	dw	ivt0x8_undefint shr (0+2)
+  2108                           
+  2109                           ; Vector 63 : Undefined
+  2110  000086  002B               	dw	ivt0x8_undefint shr (0+2)
+  2111                           
+  2112                           ; Vector 64 : Undefined
+  2113  000088  002B               	dw	ivt0x8_undefint shr (0+2)
+  2114                           
+  2115                           ; Vector 65 : Undefined
+  2116  00008A  002B               	dw	ivt0x8_undefint shr (0+2)
+  2117                           
+  2118                           ; Vector 66 : Undefined
+  2119  00008C  002B               	dw	ivt0x8_undefint shr (0+2)
+  2120                           
+  2121                           ; Vector 67 : Undefined
+  2122  00008E  002B               	dw	ivt0x8_undefint shr (0+2)
+  2123                           
+  2124                           ; Vector 68 : Undefined
+  2125  000090  002B               	dw	ivt0x8_undefint shr (0+2)
+  2126                           
+  2127                           ; Vector 69 : Undefined
+  2128  000092  002B               	dw	ivt0x8_undefint shr (0+2)
+  2129                           
+  2130                           ; Vector 70 : TMR5
+  2131  000094  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2132                           
+  2133                           ; Vector 71 : TMR5G
+  2134  000096  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2135                           
+  2136                           ; Vector 72 : TMR6
+  2137  000098  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2138                           
+  2139                           ; Vector 73 : CCP3
+  2140  00009A  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2141                           
+  2142                           ; Vector 74 : CWG3
+  2143  00009C  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2144                           
+  2145                           ; Vector 75 : CLC3
+  2146  00009E  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2147                           
+  2148                           ; Vector 76 : Undefined
+  2149  0000A0  002B               	dw	ivt0x8_undefint shr (0+2)
+  2150                           
+  2151                           ; Vector 77 : Undefined
+  2152  0000A2  002B               	dw	ivt0x8_undefint shr (0+2)
+  2153                           
+  2154                           ; Vector 78 : Undefined
+  2155  0000A4  002B               	dw	ivt0x8_undefint shr (0+2)
+  2156                           
+  2157                           ; Vector 79 : Undefined
+  2158  0000A6  002B               	dw	ivt0x8_undefint shr (0+2)
+  2159                           
+  2160                           ; Vector 80 : CCP4
+  2161  0000A8  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2162                           
+  2163                           ; Vector 81 : CLC4
+  2164  0000AA  01FB               	dw	_DEFAULT_ISR shr (0+2)
+  2165  0000AC                     ivt0x8_undefint:
+  2166                           	opt callstack 0
+  2167  0000AC  00FF               	reset	
+  2168                           
+  2169                           	psect	rparam
+  2170  0000                     tosu	equ	0x3FFF
+  2171                           tosh	equ	0x3FFE
+  2172                           tosl	equ	0x3FFD
+  2173                           stkptr	equ	0x3FFC
+  2174                           pclatu	equ	0x3FFB
+  2175                           pclath	equ	0x3FFA
+  2176                           pcl	equ	0x3FF9
+  2177                           tblptru	equ	0x3FF8
+  2178                           tblptrh	equ	0x3FF7
+  2179                           tblptrl	equ	0x3FF6
+  2180                           tablat	equ	0x3FF5
+  2181                           prodh	equ	0x3FF4
+  2182                           prodl	equ	0x3FF3
+  2183                           indf0	equ	0x3FEF
+  2184                           postinc0	equ	0x3FEE
+  2185                           postdec0	equ	0x3FED
+  2186                           preinc0	equ	0x3FEC
+  2187                           plusw0	equ	0x3FEB
+  2188                           fsr0h	equ	0x3FEA
+  2189                           fsr0l	equ	0x3FE9
+  2190                           wreg	equ	0x3FE8
+  2191                           indf1	equ	0x3FE7
+  2192                           postinc1	equ	0x3FE6
+  2193                           postdec1	equ	0x3FE5
+  2194                           preinc1	equ	0x3FE4
+  2195                           plusw1	equ	0x3FE3
+  2196                           fsr1h	equ	0x3FE2
+  2197                           fsr1l	equ	0x3FE1
+  2198                           bsr	equ	0x3FE0
+  2199                           indf2	equ	0x3FDF
+  2200                           postinc2	equ	0x3FDE
+  2201                           postdec2	equ	0x3FDD
+  2202                           preinc2	equ	0x3FDC
+  2203                           plusw2	equ	0x3FDB
+  2204                           fsr2h	equ	0x3FDA
+  2205                           fsr2l	equ	0x3FD9
+  2206                           status	equ	0x3FD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    360
+    Data        0
+    BSS         3
+    Persistent  4
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     50      57
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    _main->_color_Hex_rgb
+
+Critical Paths under _timer_tick in COMRAM
+
+    None.
+
+Critical Paths under _DEFAULT_ISR in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _timer_tick in BANK0
+
+    None.
+
+Critical Paths under _DEFAULT_ISR in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _timer_tick in BANK1
+
+    None.
+
+Critical Paths under _DEFAULT_ISR in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _timer_tick in BANK2
+
+    None.
+
+Critical Paths under _DEFAULT_ISR in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _timer_tick in BANK3
+
+    None.
+
+Critical Paths under _DEFAULT_ISR in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _timer_tick in BANK4
+
+    None.
+
+Critical Paths under _DEFAULT_ISR in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _timer_tick in BANK5
+
+    None.
+
+Critical Paths under _DEFAULT_ISR in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _timer_tick in BANK6
+
+    None.
+
+Critical Paths under _DEFAULT_ISR in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _timer_tick in BANK7
+
+    None.
+
+Critical Paths under _DEFAULT_ISR in BANK7
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                43    43      0    3290
+                                              7 COMRAM    43    43      0
+                            ___awmod
+                      _color_Hex_rgb
+                          _set_color
+ ---------------------------------------------------------------------------------
+ (1) _set_color                                            3     0      3    1132
+                                              0 COMRAM     3     0      3
+ ---------------------------------------------------------------------------------
+ (1) _color_Hex_rgb                                        7     3      4    1125
+                                              0 COMRAM     7     3      4
+ ---------------------------------------------------------------------------------
+ (1) ___awmod                                              6     2      4     600
+                                              0 COMRAM     6     2      4
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (2) _timer_tick                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (2) _DEFAULT_ISR                                          0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   ___awmod
+   _color_Hex_rgb
+   _set_color
+
+ _timer_tick (ROOT)
+
+ _DEFAULT_ISR (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             7FF      0       0      20        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK7           100      0       0      17        0.0%
+BANK7              100      0       0      18        0.0%
+BITBANK6           100      0       0      15        0.0%
+BANK6              100      0       0      16        0.0%
+BITBANK5           100      0       0      13        0.0%
+BANK5              100      0       0      14        0.0%
+BITBANK4           100      0       0      11        0.0%
+BANK4              100      0       0      12        0.0%
+BITBANK3           100      0       0       9        0.0%
+BANK3              100      0       0      10        0.0%
+BITBANK2           100      0       0       7        0.0%
+BANK2              100      0       0       8        0.0%
+BITBANK1           100      0       0       5        0.0%
+BANK1              100      0       0       6        0.0%
+BITBANK0            A0      0       0       3        0.0%
+BANK0               A0      0       0       4        0.0%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F     32      39       1       60.0%
+BITSFR_8             0      0       0     200        0.0%
+SFR_8                0      0       0     200        0.0%
+BITSFR_7             0      0       0     200        0.0%
+SFR_7                0      0       0     200        0.0%
+BITSFR_6             0      0       0     200        0.0%
+SFR_6                0      0       0     200        0.0%
+BITSFR_5             0      0       0     200        0.0%
+SFR_5                0      0       0     200        0.0%
+BITSFR_4             0      0       0     200        0.0%
+SFR_4                0      0       0     200        0.0%
+BITSFR_3             0      0       0     200        0.0%
+SFR_3                0      0       0     200        0.0%
+BITSFR_2             0      0       0     200        0.0%
+SFR_2                0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      39      19        0.0%
+DATA                 0      0      39      21        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.05 build -831301201 
+Symbol Table                                                                                   Mon Mar  4 22:10:21 2019
+
+               __CFG_CP$OFF 000000                 __CFG_LVP$ON 000000                         u150 0712  
+                       u207 038A                         u217 03AC                         u307 05B4  
+                       u227 0434                         u317 05E2                         u237 0472  
+                       u327 0610                         u247 04A0                         u337 063E  
+                       u257 04CE                         u347 066C                         u267 04FC  
+                       u357 069A                         u277 052A                         u197 0368  
+                       u367 06C8                         u287 0558                         u297 0586  
+              ___awmod@sign 0006              ?_color_Hex_rgb 0001                         wreg 003FE8  
+             __CFG_BBEN$OFF 000000        __size_of_DEFAULT_ISR 0002                __CFG_ZCD$OFF 000000  
+                      l1041 06F8                        l1061 073E                        l1053 0726  
+                      l1045 0706                        l1037 06EC                        l1047 070E  
+                      l1143 0354                        l1057 0730                        l1173 03C2  
+                      _LATA 003FBA                        _LATB 003FBB                        _LATC 003FBC  
+                      _LATD 003FBD                        _LATE 003FBE                        i2l95 0778  
+                      i2l96 0784                 main@fushcia 0028               __CFG_FCMEN$ON 000000  
+                      _main 00B2                        start 00AE                ___param_bank 000000  
+                     ?_main 0001               __CFG_WDTE$OFF 000000             __end_of___awmod 074C  
+            __CFG_DEBUG$OFF 000000                       i2l847 076A                       i2l857 0790  
+                     i2l849 076C                       _TMR0H 003FB7                       _TMR0L 003FB6  
+                     _TRISA 003FC2                       _TRISB 003FC3                       _TRISC 003FC4  
+                     _TRISD 003FC5                       _TRISE 003FC6               __CFG_WRTB$OFF 000000  
+             __CFG_WRTC$OFF 000000               __CFG_WRTD$OFF 000000          __CFG_MCLRE$EXTMCLR 000000  
+                     main@k 0031                       tablat 003FF5                       status 003FD8  
+            __CFG_CSWEN$OFF 000000             __initialization 07BC                __end_of_main 06D8  
+            __CFG_SAFEN$OFF 000000                      ??_main 0008              __CFG_PR1WAY$ON 000000  
+           ??_color_Hex_rgb 0005               __activetblptr 000002              __CFG_MVECEN$ON 000000  
+                    _ANSELA 003A40                      _ANSELB 003A50                      _ANSELC 003A60  
+                    _ANSELD 003A70                      _ANSELE 003A80                      _RB5PPS 003A0D  
+            __CFG_WDTCCS$SC 000000              __CFG_XINST$OFF 000000              __CFG_STVREN$ON 000000  
+                 ??___awmod 0005                      _enable 0033                      _lights 7E97  
+           ___awmod@divisor 0003             ___awmod@counter 0005                __mediumconst 7E96  
+                    tblptrh 003FF7                      tblptrl 003FF6                      tblptru 003FF8  
+                __accesstop 0060     __end_of__initialization 07CE               ___rparam_used 000001  
+            __pcstackCOMRAM 0001              ivt0x8_undefint 00AC             __CFG_IVT1WAY$ON 000000  
+                __pnvCOMRAM 0033                     IVTBASEH 003FD6                     IVTBASEL 003FD5  
+                   IVTBASEU 003FD7          __size_of_set_color 0014               ??_DEFAULT_ISR 0001  
+       __CFG_PWRTS$PWRT_OFF 000000                     __Hparam 0000                     __Lparam 0000  
+__CFG_RSTOSC$HFINTOSC_64MHZ 000000                     ___awmod 06D8              set_color@color 0001  
+                   __pcinit 07BC                     __ramtop 0800                     __ptext0 00B2  
+                   __ptext1 07D8                     __ptext2 0796                     __ptext3 06D8  
+                   __ptext4 074C                     __ptext5 07EC             __CFG_WRTAPP$OFF 000000  
+                   _counter 0037                     _red_reg 0036            ___awmod@dividend 0001  
+           __CFG_WRTSAF$OFF 000000                     main@red 0022         __end_of_DEFAULT_ISR 07EE  
+      end_of_initialization 07CE               __Lmediumconst 7E96           __end_of_set_color 07EC  
+                 _SPI1SSPPS 003AE0       __CFG_WDTCPS$WDTCPS_31 000000                  _timer_tick 074C  
+     __end_of_color_Hex_rgb 07BC            __CFG_FEXTOSC$OFF 000000                  _status_reg 0038  
+                main@marron 0025                  main@orange 001F                  main@yellow 001C  
+                main@purple 002B              __end_of_lights 7FFF                 _DEFAULT_ISR 07EC  
+       start_initialization 07BC                  ivt0x8_base 0008            __CFG_LPBOREN$OFF 000000  
+          color_Hex_rgb@hex 0001                 ?_timer_tick 0001                 __pbssCOMRAM 0037  
+    color_Hex_rgb@new_color 0005               __pmediumconst 7E96                    ?___awmod 0001  
+          __CFG_PPS1WAY$OFF 000000      __CFG_BBSIZE$BBSIZE_512 000000                   _green_reg 0035  
+       __size_of_timer_tick 004A                    _IPR3bits 003983                    _PIE3bits 003993  
+       __CFG_BORV$VBOR_2P45 000000                _SPI1CON0bits 003D14                _SPI1CON1bits 003D15  
+              _SPI1CON2bits 003D16                    _SPI1BAUD 003D19                   _set_color 07D8  
+                  _PIR3bits 0039A3                   main@green 0016                   main@olive 0013  
+               _INTCON0bits 003FD2                 _control_reg 0039                    __Hrparam 0000  
+                ?_set_color 0001                    __Lrparam 0000          __CFG_BOREN$SBORDIS 000000  
+          __size_of___awmod 0074                ?_DEFAULT_ISR 0001                  _T0CON0bits 003FB8  
+                _T0CON1bits 003FB9                    __pivt0x8 0008                    _blue_reg 0034  
+             __size_of_main 0626        __CFG_WDTCWS$WDTCWS_7 000000      __size_of_color_Hex_rgb 0026  
+               _SPI1CLKbits 003D1C                    main@blue 000A                    main@aqua 000D  
+                  main@lime 0019                    main@navy 002E                    main@teal 0010  
+              ??_timer_tick 0001                    intlevel2 0000           __CFG_CLKOUTEN$OFF 000000  
+               _PPSLOCKbits 003ABF          __end_of_timer_tick 0796                 ??_set_color 0004  
+                _SPI1SCKPPS 003ADE                  _SPI1SDIPPS 003ADF               _color_Hex_rgb 0796  

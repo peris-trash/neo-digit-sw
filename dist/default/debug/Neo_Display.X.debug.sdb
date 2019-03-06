@@ -1,0 +1,382 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F45K42 ]
+[d frameptr 4065 ]
+"7 /opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"4 /opt/microchip/xc8/v2.05/pic/sources/c99/common/fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v2.05/pic/sources/c99/common/float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 /opt/microchip/xc8/v2.05/pic/sources/c99/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 /opt/microchip/xc8/v2.05/pic/sources/c99/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 /opt/microchip/xc8/v2.05/pic/sources/c99/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 /opt/microchip/xc8/v2.05/pic/sources/c99/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 /opt/microchip/xc8/v2.05/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 /opt/microchip/xc8/v2.05/pic/sources/c99/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 /opt/microchip/xc8/v2.05/pic/sources/c99/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 /opt/microchip/xc8/v2.05/pic/sources/c99/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 /opt/microchip/xc8/v2.05/pic/sources/c99/common/Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"127 /home/rafael/MPLABXProjects/Neo_Display.X/main.c
+[v _timer_tick timer_tick `IIH(v  1 e 1 0 ]
+"147
+[v _DEFAULT_ISR DEFAULT_ISR `IIH(v  1 e 1 0 ]
+"152
+[v _main main `(v  1 e 1 0 ]
+"345
+[v _set_color set_color `T(v  1 s 1 set_color ]
+"95
+[s S417 . 3 `uc 1 r 1 0 `uc 1 g 1 1 `uc 1 b 1 2 ]
+"362
+[v _color_Hex_rgb color_Hex_rgb `(S417  1 e 3 0 ]
+[s S340 . 1 `uc 1 I2C1TXIP 1 0 :1:0 
+`uc 1 I2C1IP 1 0 :1:1 
+`uc 1 I2C1EIP 1 0 :1:2 
+`uc 1 U1RXIP 1 0 :1:3 
+`uc 1 U1TXIP 1 0 :1:4 
+`uc 1 U1EIP 1 0 :1:5 
+`uc 1 U1IP 1 0 :1:6 
+`uc 1 TMR0IP 1 0 :1:7 
+]
+"3005 /opt/microchip/xc8/v2.05/pic/include/pic18f45k42.h
+[s S349 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIP 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 TXBNIP 1 0 :1:4 
+]
+[u S354 . 1 `S340 1 . 1 0 `S349 1 . 1 0 ]
+[v _IPR3bits IPR3bits `VES354  1 e 1 @14723 ]
+[s S372 . 1 `uc 1 I2C1TXIE 1 0 :1:0 
+`uc 1 I2C1IE 1 0 :1:1 
+`uc 1 I2C1EIE 1 0 :1:2 
+`uc 1 U1RXIE 1 0 :1:3 
+`uc 1 U1TXIE 1 0 :1:4 
+`uc 1 U1EIE 1 0 :1:5 
+`uc 1 U1IE 1 0 :1:6 
+`uc 1 TMR0IE 1 0 :1:7 
+]
+"3668
+[s S381 . 1 `uc 1 RXB0IE 1 0 :1:0 
+`uc 1 RXB1IE 1 0 :1:1 
+`uc 1 TXB0IE 1 0 :1:2 
+`uc 1 TXB1IE 1 0 :1:3 
+`uc 1 TXB2IE 1 0 :1:4 
+]
+[s S387 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIE 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 TXBNIE 1 0 :1:4 
+]
+[u S392 . 1 `S372 1 . 1 0 `S381 1 . 1 0 `S387 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES392  1 e 1 @14739 ]
+[s S27 . 1 `uc 1 I2C1TXIF 1 0 :1:0 
+`uc 1 I2C1IF 1 0 :1:1 
+`uc 1 I2C1EIF 1 0 :1:2 
+`uc 1 U1RXIF 1 0 :1:3 
+`uc 1 U1TXIF 1 0 :1:4 
+`uc 1 U1EIF 1 0 :1:5 
+`uc 1 U1IF 1 0 :1:6 
+`uc 1 TMR0IF 1 0 :1:7 
+]
+"4314
+[s S36 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIF 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 TXBNIF 1 0 :1:4 
+]
+[u S41 . 1 `S27 1 . 1 0 `S36 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES41  1 e 1 @14755 ]
+"7110
+[v _RB5PPS RB5PPS `VEuc  1 e 1 @14861 ]
+"8210
+[v _ANSELA ANSELA `VEuc  1 e 1 @14912 ]
+"8830
+[v _ANSELB ANSELB `VEuc  1 e 1 @14928 ]
+"9666
+[v _ANSELC ANSELC `VEuc  1 e 1 @14944 ]
+"10502
+[v _ANSELD ANSELD `VEuc  1 e 1 @14960 ]
+"11152
+[v _ANSELE ANSELE `VEuc  1 e 1 @14976 ]
+[s S71 . 1 `uc 1 PPSLOCKED 1 0 :1:0 
+]
+"11517
+[u S73 . 1 `S71 1 . 1 0 ]
+[v _PPSLOCKbits PPSLOCKbits `VES73  1 e 1 @15039 ]
+"12127
+[v _SPI1SCKPPS SPI1SCKPPS `VEuc  1 e 1 @15070 ]
+"12147
+[v _SPI1SDIPPS SPI1SDIPPS `VEuc  1 e 1 @15071 ]
+"12167
+[v _SPI1SSPPS SPI1SSPPS `VEuc  1 e 1 @15072 ]
+[s S122 . 1 `uc 1 BMODE 1 0 :1:0 
+`uc 1 MST 1 0 :1:1 
+`uc 1 LSBF 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 EN 1 0 :1:7 
+]
+"23049
+[s S128 . 1 `uc 1 SPI1BMODE 1 0 :1:0 
+`uc 1 SPI1MST 1 0 :1:1 
+`uc 1 SPI1LSBF 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 SPI1SPIEN 1 0 :1:7 
+]
+[u S134 . 1 `S122 1 . 1 0 `S128 1 . 1 0 ]
+[v _SPI1CON0bits SPI1CON0bits `VES134  1 e 1 @15636 ]
+[s S82 . 1 `uc 1 SDOP 1 0 :1:0 
+`uc 1 SDIP 1 0 :1:1 
+`uc 1 SSP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 FST 1 0 :1:4 
+`uc 1 CKP 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"23121
+[s S91 . 1 `uc 1 SPI1SDOP 1 0 :1:0 
+`uc 1 SPI1SDIP 1 0 :1:1 
+`uc 1 SPI1SSP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 SPI1FST 1 0 :1:4 
+`uc 1 SPI1CKP 1 0 :1:5 
+`uc 1 SPI1CKE 1 0 :1:6 
+`uc 1 SPI1SMP 1 0 :1:7 
+]
+[u S100 . 1 `S82 1 . 1 0 `S91 1 . 1 0 ]
+[v _SPI1CON1bits SPI1CON1bits `VES100  1 e 1 @15637 ]
+[s S150 . 1 `uc 1 RXR 1 0 :1:0 
+`uc 1 TXR 1 0 :1:1 
+`uc 1 SSET 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 SSFLT 1 0 :1:6 
+`uc 1 BUSY 1 0 :1:7 
+]
+"23219
+[s S157 . 1 `uc 1 SPI1RXR 1 0 :1:0 
+`uc 1 SPI1TXR 1 0 :1:1 
+`uc 1 SPI1SSET 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 SPI1SSFLT 1 0 :1:6 
+`uc 1 SPI1BUSY 1 0 :1:7 
+]
+[u S164 . 1 `S150 1 . 1 0 `S157 1 . 1 0 ]
+[v _SPI1CON2bits SPI1CON2bits `VES164  1 e 1 @15638 ]
+"23396
+[v _SPI1BAUD SPI1BAUD `VEuc  1 e 1 @15641 ]
+[s S182 . 1 `uc 1 CLKSEL 1 0 :8:0 
+]
+"23673
+[s S184 . 1 `uc 1 CLKSEL0 1 0 :1:0 
+`uc 1 CLKSEL1 1 0 :1:1 
+`uc 1 CLKSEL2 1 0 :1:2 
+]
+[s S188 . 1 `uc 1 SPI1CLKSEL 1 0 :8:0 
+]
+[s S190 . 1 `uc 1 SPI1CLKSEL0 1 0 :1:0 
+`uc 1 SPI1CLKSEL1 1 0 :1:1 
+`uc 1 SPI1CLKSEL2 1 0 :1:2 
+]
+[u S194 . 1 `S182 1 . 1 0 `S184 1 . 1 0 `S188 1 . 1 0 `S190 1 . 1 0 ]
+[v _SPI1CLKbits SPI1CLKbits `VES194  1 e 1 @15644 ]
+"44952
+[v _TMR0L TMR0L `VEuc  1 e 1 @16310 ]
+"45090
+[v _TMR0H TMR0H `VEuc  1 e 1 @16311 ]
+[s S213 . 1 `uc 1 OUTPS 1 0 :4:0 
+`uc 1 MD16 1 0 :1:4 
+`uc 1 OUT 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 EN 1 0 :1:7 
+]
+"45372
+[s S219 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+`uc 1 T0MD16 1 0 :1:4 
+`uc 1 T0OUT 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 T0EN 1 0 :1:7 
+]
+"45372
+[s S225 . 1 `uc 1 OUTPS0 1 0 :1:0 
+`uc 1 OUTPS1 1 0 :1:1 
+`uc 1 OUTPS2 1 0 :1:2 
+`uc 1 OUTPS3 1 0 :1:3 
+`uc 1 T016BIT 1 0 :1:4 
+]
+"45372
+[u S231 . 1 `S213 1 . 1 0 `S219 1 . 1 0 `S225 1 . 1 0 ]
+"45372
+"45372
+[v _T0CON0bits T0CON0bits `VES231  1 e 1 @16312 ]
+[s S254 . 1 `uc 1 CKPS 1 0 :4:0 
+`uc 1 ASYNC 1 0 :1:4 
+`uc 1 CS 1 0 :3:5 
+]
+"45479
+[s S258 . 1 `uc 1 CKPS0 1 0 :1:0 
+`uc 1 CKPS1 1 0 :1:1 
+`uc 1 CKPS2 1 0 :1:2 
+`uc 1 CKPS3 1 0 :1:3 
+`uc 1 T0ASYNC 1 0 :1:4 
+`uc 1 CS0 1 0 :1:5 
+`uc 1 CS1 1 0 :1:6 
+`uc 1 CS2 1 0 :1:7 
+]
+"45479
+[s S267 . 1 `uc 1 T0CKPS 1 0 :4:0 
+`uc 1 . 1 0 :1:4 
+`uc 1 T0CS 1 0 :3:5 
+]
+"45479
+[s S271 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+`uc 1 T0CKPS1 1 0 :1:1 
+`uc 1 T0CKPS2 1 0 :1:2 
+`uc 1 T0CKPS3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 T0CS0 1 0 :1:5 
+`uc 1 T0CS1 1 0 :1:6 
+`uc 1 T0CS2 1 0 :1:7 
+]
+"45479
+[u S280 . 1 `S254 1 . 1 0 `S258 1 . 1 0 `S267 1 . 1 0 `S271 1 . 1 0 ]
+"45479
+"45479
+[v _T0CON1bits T0CON1bits `VES280  1 e 1 @16313 ]
+"45584
+[v _LATA LATA `VEuc  1 e 1 @16314 ]
+"45696
+[v _LATB LATB `VEuc  1 e 1 @16315 ]
+"45808
+[v _LATC LATC `VEuc  1 e 1 @16316 ]
+"45920
+[v _LATD LATD `VEuc  1 e 1 @16317 ]
+"46032
+[v _LATE LATE `VEuc  1 e 1 @16318 ]
+"46084
+[v _TRISA TRISA `VEuc  1 e 1 @16322 ]
+"46146
+[v _TRISB TRISB `VEuc  1 e 1 @16323 ]
+"46208
+[v _TRISC TRISC `VEuc  1 e 1 @16324 ]
+"46270
+[v _TRISD TRISD `VEuc  1 e 1 @16325 ]
+"46332
+[v _TRISE TRISE `VEuc  1 e 1 @16326 ]
+[s S314 . 1 `uc 1 INT0EDG 1 0 :1:0 
+`uc 1 INT1EDG 1 0 :1:1 
+`uc 1 INT2EDG 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 IPEN 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"46813
+[s S322 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 GIEH 1 0 :1:7 
+]
+"46813
+[u S325 . 1 `S314 1 . 1 0 `S322 1 . 1 0 ]
+"46813
+"46813
+[v _INTCON0bits INTCON0bits `VES325  1 e 1 @16338 ]
+"79 /home/rafael/MPLABXProjects/Neo_Display.X/main.c
+[v _lights lights `C[360]uc  1 e 360 0 ]
+"101
+[v _control_reg control_reg `VEuc  1 s 1 control_reg ]
+"102
+[v _status_reg status_reg `VEuc  1 s 1 status_reg ]
+"104
+[v _counter counter `VEuc  1 s 1 counter ]
+"106
+[v _red_reg red_reg `VEuc  1 s 1 red_reg ]
+"107
+[v _green_reg green_reg `VEuc  1 s 1 green_reg ]
+"108
+[v _blue_reg blue_reg `VEuc  1 s 1 blue_reg ]
+"110
+[v _enable enable `VEuc  1 s 1 enable ]
+"152
+[v _main main `(v  1 e 1 0 ]
+{
+"293
+[v main@k k `i  1 a 2 48 ]
+[s S417 . 3 `uc 1 r 1 0 `uc 1 g 1 1 `uc 1 b 1 2 ]
+"261
+[v main@navy navy `S417  1 a 3 45 ]
+"273
+[v main@purple purple `S417  1 a 3 42 ]
+"272
+[v main@fushcia fushcia `S417  1 a 3 39 ]
+"271
+[v main@marron marron `S417  1 a 3 36 ]
+"270
+[v main@red red `S417  1 a 3 33 ]
+"269
+[v main@orange orange `S417  1 a 3 30 ]
+"268
+[v main@yellow yellow `S417  1 a 3 27 ]
+"267
+[v main@lime lime `S417  1 a 3 24 ]
+"266
+[v main@green green `S417  1 a 3 21 ]
+"265
+[v main@olive olive `S417  1 a 3 18 ]
+"264
+[v main@teal teal `S417  1 a 3 15 ]
+"263
+[v main@aqua aqua `S417  1 a 3 12 ]
+"262
+[v main@blue blue `S417  1 a 3 9 ]
+"343
+} 0
+"345
+[v _set_color set_color `T(v  1 s 1 set_color ]
+{
+[s S417 . 3 `uc 1 r 1 0 `uc 1 g 1 1 `uc 1 b 1 2 ]
+[v set_color@color color `S417  1 p 3 0 ]
+"350
+} 0
+"95
+[s S417 . 3 `uc 1 r 1 0 `uc 1 g 1 1 `uc 1 b 1 2 ]
+"362
+[v _color_Hex_rgb color_Hex_rgb `(S417  1 e 3 0 ]
+{
+"364
+[v color_Hex_rgb@new_color new_color `S417  1 a 3 4 ]
+"362
+[v color_Hex_rgb@hex hex `ul  1 p 4 0 ]
+"369
+} 0
+"7 /opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"7
+[v ___awmod@dividend dividend `i  1 p 2 0 ]
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
+"34
+} 0
+"127 /home/rafael/MPLABXProjects/Neo_Display.X/main.c
+[v _timer_tick timer_tick `IIH(v  1 e 1 0 ]
+{
+"145
+} 0
+"147
+[v _DEFAULT_ISR DEFAULT_ISR `IIH(v  1 e 1 0 ]
+{
+"150
+} 0

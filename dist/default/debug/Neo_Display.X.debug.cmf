@@ -1,0 +1,574 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/debug/Neo_Display.X.debug.o
+ivt0x8 CODE 0 8 8 A6 1
+cinit CODE 0 7BC 7BC 1C 1
+text0 CODE 0 B2 B2 626 1
+text1 CODE 0 7D8 7D8 14 1
+text2 CODE 0 796 796 26 1
+text3 CODE 0 6D8 6D8 74 1
+text4 CODE 0 74C 74C 4A 1
+text5 CODE 0 7EC 7EC 2 1
+nvCOMRAM COMRAM 1 33 33 4 1
+cstackCOMRAM COMRAM 1 1 1 32 1
+bssCOMRAM COMRAM 1 37 37 3 1
+mediumconst MEDIUMCONST 0 7E96 7E96 16A 1
+$/tmp/xcXBgrNX5.o
+idloc IDLOC 0 200000 200000 10 1
+init CODE 0 AE AE 4 1
+reset_vec CODE 0 0 0 4 1
+config CONFIG 0 300000 300000 A 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 60-7FF 1
+SFR 3800-3FFF 1
+BANK0 60-FF 1
+BANK1 100-1FF 1
+BANK2 200-2FF 1
+BANK3 300-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5FF 1
+BANK6 600-6FF 1
+BANK7 700-7FF 1
+CONST 4-7 1
+CONST 7EE-7E95 1
+STACK 60-7FF 1
+SMALLCONST 800-7E95 1
+CODE 4-7 1
+CODE 7EE-7E95 1
+BIGRAM 3A-7FF 1
+COMRAM 3A-5F 1
+EEDATA 310000-3100FF 1
+MEDIUMCONST 800-7E95 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/debug/Neo_Display.X.debug.o
+7EC text5 CODE >145:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+7EC text5 CODE >147:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+7EC text5 CODE >150:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+74C text4 CODE >34:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+74C text4 CODE >127:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+74C text4 CODE >129:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+752 text4 CODE >131:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+756 text4 CODE >132:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+75C text4 CODE >133:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+762 text4 CODE >134:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+768 text4 CODE >135:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+76A text4 CODE >136:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+76C text4 CODE >138:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+778 text4 CODE >140:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+784 text4 CODE >142:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+790 text4 CODE >144:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+794 text4 CODE >145:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+6D8 text3 CODE >7:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+6D8 text3 CODE >12:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+6DC text3 CODE >13:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+6E0 text3 CODE >14:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+6E8 text3 CODE >15:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+6EC text3 CODE >17:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+6F0 text3 CODE >18:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+6F8 text3 CODE >19:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+700 text3 CODE >20:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+704 text3 CODE >21:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+706 text3 CODE >22:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+70C text3 CODE >23:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+70E text3 CODE >21:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+712 text3 CODE >26:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+71E text3 CODE >27:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+726 text3 CODE >28:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+72C text3 CODE >29:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+730 text3 CODE >31:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+736 text3 CODE >32:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+73E text3 CODE >33:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+74A text3 CODE >34:/opt/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+796 text2 CODE >362:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+796 text2 CODE >365:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+79C text2 CODE >366:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+7A2 text2 CODE >367:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+7A8 text2 CODE >368:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+7BA text2 CODE >369:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+7D8 text1 CODE >345:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+7D8 text1 CODE >347:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+7DE text1 CODE >348:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+7E4 text1 CODE >349:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+7EA text1 CODE >350:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+B2 text0 CODE >152:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+B2 text0 CODE >156:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+B6 text0 CODE >158:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+BA text0 CODE >159:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+BE text0 CODE >160:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+C2 text0 CODE >162:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+C4 text0 CODE >167:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+CA text0 CODE >168:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+CE text0 CODE >169:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+D2 text0 CODE >172:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+D6 text0 CODE >173:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+DA text0 CODE >174:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+DE text0 CODE >177:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+E2 text0 CODE >178:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+E6 text0 CODE >179:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+EA text0 CODE >182:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+EE text0 CODE >183:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+F2 text0 CODE >184:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+F6 text0 CODE >187:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+FA text0 CODE >188:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+FE text0 CODE >189:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+100 text0 CODE >193:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+102 text0 CODE >196:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+106 text0 CODE >197:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+10A text0 CODE >198:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+10E text0 CODE >201:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+112 text0 CODE >203:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+114 text0 CODE >207:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+118 text0 CODE >208:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+11A text0 CODE >209:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+11C text0 CODE >210:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+11E text0 CODE >211:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+120 text0 CODE >213:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+122 text0 CODE >214:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+124 text0 CODE >216:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+126 text0 CODE >217:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+128 text0 CODE >218:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+12A text0 CODE >220:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+12E text0 CODE >222:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+132 text0 CODE >224:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+134 text0 CODE >234:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+138 text0 CODE >235:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+13A text0 CODE >237:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+142 text0 CODE >238:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+144 text0 CODE >239:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+14C text0 CODE >241:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+150 text0 CODE >243:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+154 text0 CODE >245:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+156 text0 CODE >250:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+158 text0 CODE >251:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+15A text0 CODE >252:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+15C text0 CODE >255:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+160 text0 CODE >256:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+162 text0 CODE >257:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+164 text0 CODE >259:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+166 text0 CODE >261:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+18C text0 CODE >262:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+1B2 text0 CODE >263:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+1D8 text0 CODE >264:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+1FE text0 CODE >265:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+224 text0 CODE >266:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+24A text0 CODE >267:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+270 text0 CODE >268:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+296 text0 CODE >269:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+2BC text0 CODE >270:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+2E2 text0 CODE >271:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+308 text0 CODE >272:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+32E text0 CODE >273:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+354 text0 CODE >280:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+356 text0 CODE >281:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+35A text0 CODE >282:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+35E text0 CODE >283:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+376 text0 CODE >284:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+37A text0 CODE >285:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+37C text0 CODE >286:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+380 text0 CODE >287:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+398 text0 CODE >288:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+39C text0 CODE >289:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+3A0 text0 CODE >290:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+3A2 text0 CODE >291:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+3BA text0 CODE >293:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+3C2 text0 CODE >295:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+3EE text0 CODE >296:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+402 text0 CODE >297:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+42E text0 CODE >298:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+43E text0 CODE >299:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+452 text0 CODE >301:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+468 text0 CODE >302:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+480 text0 CODE >304:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+496 text0 CODE >305:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+4AE text0 CODE >307:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+4C4 text0 CODE >308:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+4DC text0 CODE >310:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+4F2 text0 CODE >311:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+50A text0 CODE >313:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+520 text0 CODE >314:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+538 text0 CODE >316:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+54E text0 CODE >317:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+566 text0 CODE >319:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+57C text0 CODE >320:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+594 text0 CODE >322:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+5AA text0 CODE >323:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+5C2 text0 CODE >325:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+5D8 text0 CODE >326:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+5F0 text0 CODE >328:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+606 text0 CODE >329:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+61E text0 CODE >331:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+634 text0 CODE >332:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+64C text0 CODE >334:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+662 text0 CODE >335:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+67A text0 CODE >337:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+690 text0 CODE >338:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+6A8 text0 CODE >340:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+6BE text0 CODE >341:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+6D6 text0 CODE >342:/home/rafael/MPLABXProjects/Neo_Display.X/main.c
+7BC cinit CODE >2126:/tmp/xcXFmtucV
+7BC cinit CODE >2128:/tmp/xcXFmtucV
+7BC cinit CODE >2131:/tmp/xcXFmtucV
+7BC cinit CODE >2146:/tmp/xcXFmtucV
+7BE cinit CODE >2147:/tmp/xcXFmtucV
+7C0 cinit CODE >2148:/tmp/xcXFmtucV
+7C2 cinit CODE >2156:/tmp/xcXFmtucV
+7C4 cinit CODE >2157:/tmp/xcXFmtucV
+7C6 cinit CODE >2158:/tmp/xcXFmtucV
+7C8 cinit CODE >2159:/tmp/xcXFmtucV
+7CA cinit CODE >2160:/tmp/xcXFmtucV
+7CC cinit CODE >2161:/tmp/xcXFmtucV
+7CE cinit CODE >2167:/tmp/xcXFmtucV
+7CE cinit CODE >2170:/tmp/xcXFmtucV
+7D0 cinit CODE >2171:/tmp/xcXFmtucV
+7D2 cinit CODE >2172:/tmp/xcXFmtucV
+7D4 cinit CODE >2173:/tmp/xcXFmtucV
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+_SPI1SCKPPS 3ADE 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_SPI1SDIPPS 3ADF 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Lmediumconst 7E96 0 MEDIUMCONST 0 mediumconst dist/default/debug/Neo_Display.X.debug.o
+__Hspace_0 30000A 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Hspace_1 3A 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Hspace_2 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_set_color 7D8 0 CODE 0 text1 dist/default/debug/Neo_Display.X.debug.o
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/debug/Neo_Display.X.debug.o
+__mediumconst 7E96 0 MEDIUMCONST 0 mediumconst /tmp/xcXBgrNX5.o
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/debug/Neo_Display.X.debug.o
+__CFG_RSTOSC$HFINTOSC_64MHZ 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_timer_tick 74C 0 CODE 0 text4 dist/default/debug/Neo_Display.X.debug.o
+main@k 31 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__CFG_WDTCCS$SC 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/debug/Neo_Display.X.debug.o
+_LATA 3FBA 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_LATB 3FBB 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_LATC 3FBC 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_LATD 3FBD 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_LATE 3FBE 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+___sp 0 0 STACK 2 stack /tmp/xcXBgrNX5.o
+_main B2 0 CODE 0 text0 dist/default/debug/Neo_Display.X.debug.o
+start AE 0 CODE 0 init /tmp/xcXBgrNX5.o
+__size_of___awmod 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__size_of_main 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__CFG_DEBUG$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_green_reg 35 0 COMRAM 1 nvCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Hpowerup 0 0 CODE 0 powerup dist/default/debug/Neo_Display.X.debug.o
+___awmod@sign 6 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+_color_Hex_rgb 796 0 CODE 0 text2 dist/default/debug/Neo_Display.X.debug.o
+__LnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__accesstop 60 0 ABS 0 - /tmp/xcXBgrNX5.o
+intlevel0 0 0 CODE 0 text /tmp/xcXBgrNX5.o
+intlevel1 0 0 CODE 0 text /tmp/xcXBgrNX5.o
+intlevel2 0 0 CODE 0 text /tmp/xcXBgrNX5.o
+intlevel3 0 0 CODE 0 text /tmp/xcXBgrNX5.o
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug/Neo_Display.X.debug.o
+_DEFAULT_ISR 7EC 0 CODE 0 text5 dist/default/debug/Neo_Display.X.debug.o
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/debug/Neo_Display.X.debug.o
+__Hifardata 0 0 CODE 0 ifardata dist/default/debug/Neo_Display.X.debug.o
+__Hclrtext 0 0 ABS 0 clrtext dist/default/debug/Neo_Display.X.debug.o
+__end_of_timer_tick 796 0 CODE 0 text4 dist/default/debug/Neo_Display.X.debug.o
+ivt0x8_base 8 0 CODE 0 ivt0x8 dist/default/debug/Neo_Display.X.debug.o
+_blue_reg 34 0 COMRAM 1 nvCOMRAM dist/default/debug/Neo_Display.X.debug.o
+_SPI1CON0bits 3D14 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_SPI1CON1bits 3D15 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_SPI1CON2bits 3D16 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_ANSELA 3A40 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_ANSELB 3A50 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_ANSELC 3A60 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_ANSELD 3A70 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_ANSELE 3A80 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+___inthi_sp 0 0 STACK 2 stack /tmp/xcXBgrNX5.o
+___intlo_sp 0 0 STACK 2 stack /tmp/xcXBgrNX5.o
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/debug/Neo_Display.X.debug.o
+main@red 22 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Hmediumconst 8000 0 MEDIUMCONST 0 mediumconst dist/default/debug/Neo_Display.X.debug.o
+set_color@color 1 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__end_of___awmod 74C 0 CODE 0 text3 dist/default/debug/Neo_Display.X.debug.o
+__CFG_FEXTOSC$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+color_Hex_rgb@hex 1 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+main@fushcia 28 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+_control_reg 39 0 COMRAM 1 bssCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__CFG_SAFEN$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__HnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/debug/Neo_Display.X.debug.o
+_INTCON0bits 3FD2 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__CFG_PPS1WAY$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_SPI1CLKbits 3D1C 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+start_initialization 7BC 0 CODE 0 cinit dist/default/debug/Neo_Display.X.debug.o
+__size_of_color_Hex_rgb 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/debug/Neo_Display.X.debug.o
+__CFG_WDTCPS$WDTCPS_31 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__end_of_lights 7FFF 0 MEDIUMCONST 0 mediumconst dist/default/debug/Neo_Display.X.debug.o
+___rparam_used 1 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_RB5PPS 3A0D 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_IPR3bits 3983 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_red_reg 36 0 COMRAM 1 nvCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__end_of_color_Hex_rgb 7BC 0 CODE 0 text2 dist/default/debug/Neo_Display.X.debug.o
+__Hbank0 0 0 ABS 0 bank0 dist/default/debug/Neo_Display.X.debug.o
+__Hbank1 0 0 ABS 0 bank1 dist/default/debug/Neo_Display.X.debug.o
+__Hbank2 0 0 ABS 0 bank2 dist/default/debug/Neo_Display.X.debug.o
+__Hbank3 0 0 ABS 0 bank3 dist/default/debug/Neo_Display.X.debug.o
+__Hbank4 0 0 ABS 0 bank4 dist/default/debug/Neo_Display.X.debug.o
+__Hbank5 0 0 ABS 0 bank5 dist/default/debug/Neo_Display.X.debug.o
+__Hbank6 0 0 ABS 0 bank6 dist/default/debug/Neo_Display.X.debug.o
+__Hbank7 0 0 ABS 0 bank7 dist/default/debug/Neo_Display.X.debug.o
+__Hcinit 0 0 ABS 0 cinit dist/default/debug/Neo_Display.X.debug.o
+__Hconst 0 0 CONST 0 const dist/default/debug/Neo_Display.X.debug.o
+__Hidata 0 0 CODE 0 idata dist/default/debug/Neo_Display.X.debug.o
+__Hidloc 200010 0 IDLOC 0 idloc dist/default/debug/Neo_Display.X.debug.o
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/debug/Neo_Display.X.debug.o
+__Hparam 0 0 COMRAM 1 rparam dist/default/debug/Neo_Display.X.debug.o
+__Hrdata 0 0 COMRAM 1 rdata dist/default/debug/Neo_Display.X.debug.o
+__Hstack 0 0 STACK 2 stack dist/default/debug/Neo_Display.X.debug.o
+__Htext0 0 0 ABS 0 text0 dist/default/debug/Neo_Display.X.debug.o
+__Htext1 0 0 ABS 0 text1 dist/default/debug/Neo_Display.X.debug.o
+__Htext2 0 0 ABS 0 text2 dist/default/debug/Neo_Display.X.debug.o
+__Htext3 0 0 ABS 0 text3 dist/default/debug/Neo_Display.X.debug.o
+__Htext4 0 0 ABS 0 text4 dist/default/debug/Neo_Display.X.debug.o
+__Htext5 0 0 ABS 0 text5 dist/default/debug/Neo_Display.X.debug.o
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/debug/Neo_Display.X.debug.o
+__Hbigram 0 0 ABS 0 bigram dist/default/debug/Neo_Display.X.debug.o
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcXBgrNX5.o
+__Hcomram 0 0 ABS 0 comram dist/default/debug/Neo_Display.X.debug.o
+__Hconfig 30000A 0 CONFIG 0 config dist/default/debug/Neo_Display.X.debug.o
+__Lbank0 0 0 ABS 0 bank0 dist/default/debug/Neo_Display.X.debug.o
+__Lbank1 0 0 ABS 0 bank1 dist/default/debug/Neo_Display.X.debug.o
+__Lbank2 0 0 ABS 0 bank2 dist/default/debug/Neo_Display.X.debug.o
+__Lbank3 0 0 ABS 0 bank3 dist/default/debug/Neo_Display.X.debug.o
+__Lbank4 0 0 ABS 0 bank4 dist/default/debug/Neo_Display.X.debug.o
+__Lbank5 0 0 ABS 0 bank5 dist/default/debug/Neo_Display.X.debug.o
+__Lbank6 0 0 ABS 0 bank6 dist/default/debug/Neo_Display.X.debug.o
+__Lbank7 0 0 ABS 0 bank7 dist/default/debug/Neo_Display.X.debug.o
+__Lcinit 0 0 ABS 0 cinit dist/default/debug/Neo_Display.X.debug.o
+__Lconst 0 0 CONST 0 const dist/default/debug/Neo_Display.X.debug.o
+__Lidata 0 0 CODE 0 idata dist/default/debug/Neo_Display.X.debug.o
+__Lidloc 200000 0 IDLOC 0 idloc dist/default/debug/Neo_Display.X.debug.o
+__CFG_PR1WAY$ON 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/debug/Neo_Display.X.debug.o
+__Lparam 0 0 COMRAM 1 rparam dist/default/debug/Neo_Display.X.debug.o
+__Lrdata 0 0 COMRAM 1 rdata dist/default/debug/Neo_Display.X.debug.o
+__Lstack 0 0 STACK 2 stack dist/default/debug/Neo_Display.X.debug.o
+__Ltext0 0 0 ABS 0 text0 dist/default/debug/Neo_Display.X.debug.o
+__Ltext1 0 0 ABS 0 text1 dist/default/debug/Neo_Display.X.debug.o
+__Ltext2 0 0 ABS 0 text2 dist/default/debug/Neo_Display.X.debug.o
+__Ltext3 0 0 ABS 0 text3 dist/default/debug/Neo_Display.X.debug.o
+__Ltext4 0 0 ABS 0 text4 dist/default/debug/Neo_Display.X.debug.o
+__Ltext5 0 0 ABS 0 text5 dist/default/debug/Neo_Display.X.debug.o
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/debug/Neo_Display.X.debug.o
+__Habs1 0 0 ABS 0 abs1 dist/default/debug/Neo_Display.X.debug.o
+__Hdata 0 0 ABS 0 data dist/default/debug/Neo_Display.X.debug.o
+__Hinit B2 0 CODE 0 init dist/default/debug/Neo_Display.X.debug.o
+__Hrbit 0 0 COMRAM 1 rbit dist/default/debug/Neo_Display.X.debug.o
+__Hrbss 0 0 COMRAM 1 rbss dist/default/debug/Neo_Display.X.debug.o
+__Htemp 0 0 COMRAM 1 temp dist/default/debug/Neo_Display.X.debug.o
+__Htext 0 0 ABS 0 text dist/default/debug/Neo_Display.X.debug.o
+__Labs1 0 0 ABS 0 abs1 dist/default/debug/Neo_Display.X.debug.o
+__Ldata 0 0 ABS 0 data dist/default/debug/Neo_Display.X.debug.o
+__Linit AE 0 CODE 0 init dist/default/debug/Neo_Display.X.debug.o
+__Lrbit 0 0 COMRAM 1 rbit dist/default/debug/Neo_Display.X.debug.o
+__Lrbss 0 0 COMRAM 1 rbss dist/default/debug/Neo_Display.X.debug.o
+__Ltemp 0 0 COMRAM 1 temp dist/default/debug/Neo_Display.X.debug.o
+__Ltext 0 0 ABS 0 text dist/default/debug/Neo_Display.X.debug.o
+__CFG_XINST$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__CFG_WDTCWS$WDTCWS_7 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Hirdata 0 0 CODE 0 irdata dist/default/debug/Neo_Display.X.debug.o
+__S0 30000A 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__S1 3A 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__S2 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Hivt0x8 AE 0 CODE 0 ivt0x8 dist/default/debug/Neo_Display.X.debug.o
+__CFG_IVT1WAY$ON 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__size_of_timer_tick 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+IVTBASEH 3FD6 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+IVTBASEL 3FD5 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+IVTBASEU 3FD7 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__pnvCOMRAM 33 0 COMRAM 1 nvCOMRAM dist/default/debug/Neo_Display.X.debug.o
+_status_reg 38 0 COMRAM 1 bssCOMRAM dist/default/debug/Neo_Display.X.debug.o
+_SPI1BAUD 3D19 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__pivt0x8 8 0 CODE 0 ivt0x8 dist/default/debug/Neo_Display.X.debug.o
+__CFG_BBEN$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/debug/Neo_Display.X.debug.o
+_enable 33 0 COMRAM 1 nvCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/debug/Neo_Display.X.debug.o
+__end_of_DEFAULT_ISR 7EE 0 CODE 0 text5 dist/default/debug/Neo_Display.X.debug.o
+__Hramtop 800 0 RAM 0 ramtop dist/default/debug/Neo_Display.X.debug.o
+__Hrparam 0 0 COMRAM 1 rparam dist/default/debug/Neo_Display.X.debug.o
+__activetblptr 2 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Hstruct 0 0 COMRAM 1 struct dist/default/debug/Neo_Display.X.debug.o
+__CFG_FCMEN$ON 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_lights 7E97 0 MEDIUMCONST 0 mediumconst dist/default/debug/Neo_Display.X.debug.o
+___awmod@counter 5 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+_PIE3bits 3993 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__CFG_MVECEN$ON 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+___awmod 6D8 0 CODE 0 text3 dist/default/debug/Neo_Display.X.debug.o
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/debug/Neo_Display.X.debug.o
+__Lbigram 0 0 ABS 0 bigram dist/default/debug/Neo_Display.X.debug.o
+__Lcomram 0 0 ABS 0 comram dist/default/debug/Neo_Display.X.debug.o
+__Lconfig 300000 0 CONFIG 0 config dist/default/debug/Neo_Display.X.debug.o
+__CFG_CP$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__CFG_BBSIZE$BBSIZE_512 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__CFG_WDTE$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+ivt0x8_undefint AC 0 CODE 0 ivt0x8 dist/default/debug/Neo_Display.X.debug.o
+__CFG_WRTAPP$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+main@aqua D 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+main@blue A 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+main@lime 19 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+main@navy 2E 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+main@teal 10 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/debug/Neo_Display.X.debug.o
+main@green 16 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+main@olive 13 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Lfardata 0 0 FARRAM 0 fardata dist/default/debug/Neo_Display.X.debug.o
+stackhi 7FF 0 ABS 0 - /tmp/xcXBgrNX5.o
+stacklo 60 0 ABS 0 - /tmp/xcXBgrNX5.o
+__Lirdata 0 0 CODE 0 irdata dist/default/debug/Neo_Display.X.debug.o
+__Livt0x8 8 0 CODE 0 ivt0x8 dist/default/debug/Neo_Display.X.debug.o
+__Lspace_0 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Lspace_1 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Lspace_2 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__pbssCOMRAM 37 0 COMRAM 1 bssCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__CFG_LPBOREN$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_PIR3bits 39A3 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__CFG_LVP$ON 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__CFG_CSWEN$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__CFG_ZCD$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_SPI1SSPPS 3AE0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+end_of_initialization 7CE 0 CODE 0 cinit dist/default/debug/Neo_Display.X.debug.o
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/debug/Neo_Display.X.debug.o
+__CFG_STVREN$ON 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_PPSLOCKbits 3ABF 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+?___awmod 1 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Hreset_vec 4 0 CODE 0 reset_vec dist/default/debug/Neo_Display.X.debug.o
+___awmod@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Lramtop 800 0 RAM 0 ramtop dist/default/debug/Neo_Display.X.debug.o
+__Lrparam 0 0 COMRAM 1 rparam dist/default/debug/Neo_Display.X.debug.o
+__pcinit 7BC 0 CODE 0 cinit dist/default/debug/Neo_Display.X.debug.o
+__ptext0 B2 0 CODE 0 text0 dist/default/debug/Neo_Display.X.debug.o
+__ptext1 7D8 0 CODE 0 text1 dist/default/debug/Neo_Display.X.debug.o
+__ptext2 796 0 CODE 0 text2 dist/default/debug/Neo_Display.X.debug.o
+__ptext3 6D8 0 CODE 0 text3 dist/default/debug/Neo_Display.X.debug.o
+__ptext4 74C 0 CODE 0 text4 dist/default/debug/Neo_Display.X.debug.o
+__ptext5 7EC 0 CODE 0 text5 dist/default/debug/Neo_Display.X.debug.o
+__Lstruct 0 0 COMRAM 1 struct dist/default/debug/Neo_Display.X.debug.o
+__ramtop 800 0 RAM 0 ramtop /tmp/xcXBgrNX5.o
+main@marron 25 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Lpowerup 0 0 CODE 0 powerup dist/default/debug/Neo_Display.X.debug.o
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/debug/Neo_Display.X.debug.o
+__size_of_DEFAULT_ISR 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+main@orange 1F 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Lreset_vec 0 0 CODE 0 reset_vec dist/default/debug/Neo_Display.X.debug.o
+main@purple 2B 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+___param_bank 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/debug/Neo_Display.X.debug.o
+__end_of__initialization 7CE 0 CODE 0 cinit dist/default/debug/Neo_Display.X.debug.o
+___awmod@divisor 3 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+color_Hex_rgb@new_color 5 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__CFG_WRTB$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Libigdata 0 0 CODE 0 ibigdata dist/default/debug/Neo_Display.X.debug.o
+__CFG_WRTC$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__CFG_WRTD$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+?_color_Hex_rgb 1 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Lclrtext 0 0 ABS 0 clrtext dist/default/debug/Neo_Display.X.debug.o
+__CFG_PWRTS$PWRT_OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__CFG_BORV$VBOR_2P45 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+_T0CON0bits 3FB8 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_T0CON1bits 3FB9 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__pmediumconst 7E96 0 MEDIUMCONST 0 mediumconst dist/default/debug/Neo_Display.X.debug.o
+__CFG_BOREN$SBORDIS 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+main@yellow 1C 0 COMRAM 1 cstackCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__end_of_main 6D8 0 CODE 0 text0 dist/default/debug/Neo_Display.X.debug.o
+__CFG_WRTSAF$OFF 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_TMR0H 3FB7 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_TMR0L 3FB6 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_TRISA 3FC2 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_TRISB 3FC3 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_TRISC 3FC4 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_TRISD 3FC5 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+_TRISE 3FC6 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__HRAM 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Hbss 0 0 RAM 1 bss dist/default/debug/Neo_Display.X.debug.o
+__Hram 0 0 ABS 0 ram dist/default/debug/Neo_Display.X.debug.o
+__Hsfr 0 0 ABS 0 sfr dist/default/debug/Neo_Display.X.debug.o
+__LRAM 1 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Lbss 0 0 RAM 1 bss dist/default/debug/Neo_Display.X.debug.o
+__Lram 0 0 ABS 0 ram dist/default/debug/Neo_Display.X.debug.o
+__Lsfr 0 0 ABS 0 sfr dist/default/debug/Neo_Display.X.debug.o
+__initialization 7BC 0 CODE 0 cinit dist/default/debug/Neo_Display.X.debug.o
+__end_of_set_color 7EC 0 CODE 0 text1 dist/default/debug/Neo_Display.X.debug.o
+_counter 37 0 COMRAM 1 bssCOMRAM dist/default/debug/Neo_Display.X.debug.o
+__Hfardata 0 0 FARRAM 0 fardata dist/default/debug/Neo_Display.X.debug.o
+__Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/debug/Neo_Display.X.debug.o
+__size_of_set_color 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+__Lifardata 0 0 CODE 0 ifardata dist/default/debug/Neo_Display.X.debug.o
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/debug/Neo_Display.X.debug.o
+__CFG_MCLRE$EXTMCLR 0 0 ABS 0 - dist/default/debug/Neo_Display.X.debug.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+ivt0x8 0 8 8 7E6 1
+idloc 0 200000 200000 10 1
+cstackCOMRAM 1 1 1 39 1
+reset_vec 0 0 0 4 1
+mediumconst 0 7E96 7E96 16A 1
+config 0 300000 300000 A 1
